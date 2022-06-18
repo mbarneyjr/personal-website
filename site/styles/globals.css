@@ -1,0 +1,95 @@
+:root {
+  --light-color: rgba(204,204,238,1);
+  --dim-color: rgba(51,51,85,1);
+  --dark-color: rgba(34,34,51,1);
+}
+@font-face {
+  font-family: "Acme";
+  src: url(fonts/Acme-Regular.ttf) format("truetype");
+}
+* {
+  box-sizing: border-box;
+}
+html body {
+  margin: 0;
+  padding-top: 64px;
+  background-color: var(--dark-color);
+  font-family: 'Arial';
+  color: var(--light-color);
+}
+
+a {
+  color: var(--light-color);
+  filter: brightness(175%);
+}
+
+.zoom {
+  transition: all .2s;
+}
+.zoom:hover {
+  transform: scale(1.25)
+}
+
+.section-header {
+  text-align: center;
+  color: var(--light-color);
+  font-family: 'Acme';
+}
+
+.content-card {
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 2em;
+  max-width: 1024px;
+  background-color: var(--dim-color);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+/* List items */
+.list-items {
+  list-style: none;
+  padding: 0;
+}
+
+.list-item:not(:last-child) {
+  margin-bottom: 1em;
+}
+.list-item-title {
+  width: 100%;
+  text-align: left;
+  font-family: Acme;
+  font-weight: bold;
+}
+.list-item-line {
+  display: flex;
+}
+.list-item-subtitle {
+  width: 100%;
+  text-align: left;
+  filter: brightness(75%);
+  font-style: italic;
+}
+.list-item-value {
+  width: 100%;
+  text-align: right;
+  filter: brightness(75%);
+  font-style: italic;
+}
+
+@media print {
+  html body {
+    padding-top: 0px;
+    color: var(--dark-color);
+  }
+  a {
+    padding-top: 0px;
+    color: var(--dark-color);
+  }
+  .content-card {
+    box-shadow: none;
+  }
+  header-navbar {
+    display: none;
+  }
+}

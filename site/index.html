@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Michael Barney</title>
+  <meta name="description" content="The personal website of Michael Barney." />
+
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles/globals.css">
+  <link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/components/header-navbar/index.css">
+
+  <script src="/index.js" type="text/javascript" defer></script>
+  <script src="/components/header-navbar/index.js" type="text/javascript" defer></script>
+</head>
+
+<body>
+  <header-navbar></header-navbar>
+  <!-- Introduction -->
+  <div class="content-card">
+    <div id="profile-picture-container">
+      <img src="images/mbarney.png" alt="profile picture" id="profile-picture" width="512" height="512">
+    </div>
+    <h1 id="name">Michael Barney</h1>
+    <ul class="characteristic-list">
+      <li>Curious</li>
+      <li>|</li>
+      <li>Friendly</li>
+      <li>|</li>
+      <li>Laid Back</li>
+    </ul>
+    <p id="introduction">
+      Howdy, I'm Michael! I like to build stuff and play video games.
+    </p>
+  </div>
+
+  <h2 class="section-header" id="more-stuff-about-me">Some More Stuff About Me</h2>
+  <div class="content-card">
+    <p>
+      I'm a DevOps Architect at <a target="_blank" href="https://trek10.com">Trek10 Inc</a>.
+      I entered tech as a "<a target="_blank" href="https://twitter.com/forrestbrazeal/status/1051953942492602370">serverless native,</a>" beginning my career building cloud applications at the bleeding edge.
+      I studied Computer Science at Indiana University, and I have 7 AWS certifications.
+      The only thing I love more than serverless technologies is automation and DevOps.
+      The more I can automate through source control, CI/CD, and infrastructure-as-code the happier I am.
+    </p>
+    <p>
+      When I'm not working at Trek10 I enjoy learning new technologies, tinkering with my homelab, and playing video games.
+      My homelab currently consists of a Unifi Dream Machine Pro and a PoE Switch for networking.
+      For compute I have a <a target="_blank" href="https://system76.com/">System76</a> laptop with Ubuntu server installed.
+      Most homelab services I run are in the form of a <a target="_blank" href="https://www.docker.com/">Docker</a> container, orchestrated through docker-compose.
+      Services I run include <a target="_blank" href="https://pi-hole.net/">Pihole</a></li>, <a target="_blank" href="https://homebridge.io/">Homebridge</a></li>, <a target="_blank" href="https://gitea.io/">Gitea</a></li>, <a target="_blank" href="https://www.plex.tv/">Plex</a></li>, and <a target="_blank" href="https://minecraft.net/">Minecraft</a></li>.
+    </p>
+  </div>
+
+  <h2 class="section-header">Projects</h2>
+  <div class="content-card">
+    <ul class="project-list">
+      <li class="project-list-item">
+        <header class="project-header">
+          <h3 class="project-title">AWSume</h3>
+          <ul class="project-technologies">
+            <li class="project-technology"><h3>Python</h3></li>
+          </ul>
+        </header>
+        <p class="project-description">Through my internship at Trek10, I've created an awesome command-line utility for easily using AWS IAM credentials. Easily use AWS user/role credentials with this feature-packed and extensible command-line utility.</p>
+        <a aria-label="link to project's GitHub page" target="_blank" class="project-link" href="https://github.com/trek10inc/awsume"><i class="fa fa-large fa-github"></i></a>
+      </li>
+      <li class="project-list-item">
+        <header class="project-header">
+          <h3 class="project-title">multilayerperceptron-js</h3>
+          <ul class="project-technologies">
+            <li class="project-technology"><h3>NodeJS</h3></li>
+          </ul>
+        </header>
+        <p class="project-description">I wrote a small neural network library using JavaScript. This library is intended to be easily understood/readable for educational purposes, and not meant to be optimized.</p>
+        <a aria-label="link to project's GitHub page" target="_blank" class="project-link" href="https://github.com/mbarneyjr/multilayerperceptron-js"><i class="fa fa-large fa-github"></i></a>
+      </li>
+      <li class="project-list-item">
+        <header class="project-header">
+          <h3 class="project-title">DiscoPong</h3>
+          <ul class="project-technologies">
+            <li class="project-technology"><h3>C++</h3></li>
+            <li class="project-technology"><h3>OpenGL</h3></li>
+          </ul>
+        </header>
+        <p class="project-description">Trying to better understand graphics programming, I wrote a small program using OpenGL to animate a bouncing light on top of a randomly-generated disco floor.</p>
+        <a aria-label="link to project's GitHub page" target="_blank" class="project-link" href="https://github.com/mbarneyjr/DiscoPong"><i class="fa fa-large fa-github"></i></a>
+      </li>
+      <li class="project-list-item">
+        <header class="project-header">
+          <h3 class="project-title">Growth</h3>
+          <ul class="project-technologies">
+            <li class="project-technology"><h3>C#</h3></li>
+            <li class="project-technology"><h3>Unity</h3></li>
+          </ul>
+        </header>
+        <p class="project-description">Using the Unity3D game engine, I created a simple game reminiscent of the game Agario. The goal of the game is to eat everything that is smaller than you, and avoid things that are bigger than you.</p>
+        <a aria-label="link to project's GitHub page" target="_blank" class="project-link" href="https://github.com/mbarneyjr/Growth"><i class="fa fa-large fa-github"></i></a>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>

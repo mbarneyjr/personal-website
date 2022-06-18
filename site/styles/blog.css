@@ -1,0 +1,63 @@
+.blog-item-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: auto;
+  padding: auto;
+  align-items: center;
+}
+.blog-title {
+  font-family: 'Acme';
+  text-decoration: inherit;
+  color: white;
+}
+.blog-description {
+  font-style: italic;
+  filter: brightness(75%);
+}
+
+img {
+  max-width: 100%;
+  margin: auto;
+  display: block;
+}
+figcaption {
+  font-style: italic;
+  filter: brightness(75%);
+  text-align: center;
+}
+table {
+  margin: auto;
+  text-align: center;
+}
+th, td {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+table, th, td {
+  border: 1px solid var(--light-color);
+  border-collapse: collapse;
+}
+
+pre {
+  width: 100%;
+  overflow: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: var(--dark-color);
+  box-shadow: inset 0 0 4px #000000;
+}
+
+hr {
+  border: 1px solid var(--dark-color);
+}
+
+.blog-stats {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  max-width: 100%;
+  justify-content: space-evenly;
+  font-style: italic;
+  filter: brightness(75%);
+}

@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/mbarneyjr
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://mbarney.me
+  * I am mbarneyjr (https://keybase.io/mbarneyjr) on keybase.
+  * I have a public key with fingerprint BAD3 7BE1 A51B 3DF2 85FA  38EA 9BFE 4922 CD40 FD17
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012007e0dc0b7c4fe4cf2bf5a4cc6625bada87aff90d84c7f4725fbe937c7e89765b0a",
+      "fingerprint": "bad37be1a51b3df285fa38ea9bfe4922cd40fd17",
+      "host": "keybase.io",
+      "key_id": "9bfe4922cd40fd17",
+      "kid": "01017899e477363ac3535f44b22ea9524a42065cc92199edd70ad3b3b11b518b36b70a",
+      "uid": "5df685e8f04e9f948469d5df38273819",
+      "username": "mbarneyjr"
+    },
+    "service": {
+      "hostname": "mbarney.me",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1603218132,
+  "expire_in": 157680000,
+  "prev": "7279f3787022550cdb42710d82914c45534adec9ff729ba9dba6b70297f142f4",
+  "seqno": 34,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMNuAnicbVJ9TFVlHL4X8AOayFqKy6lwgKgkOuc9H+85l8pmtoANxRhffXg77znv
+gStw7/V+cCFAqeUHGGB0Bw6QGK6g+LIWGssGNxA3SaF72Zw0omilASaoGCJq57D8
+o633n3e/Z8/z/J7f730H1vjrgvT1DxKIiy/fD9UPeWqdOmPVs6NFBLLIhYShiMjB
+yxfOlbHdYcwxyYSBIClAkhCTskQiKDEKZiQFIIUVGUniOMAiURZ5KCqKQMo8I0GF
+gYBVEBZoKEHMC5BjESkSMYRiMmdhm9VmMjtUW1VGQ4QpkaUQLSuAZxWR5rEoILWD
+AIAkM6QiU1AVZlvsmkINh0Q7jjVZVEwtjMvx/of/KDdJQV4QMAMhzdGiRLM0qzAM
+AkDtwgJGZADJsZIkAEplyTIk1UiIRhSFWIpHNIfgcm7nsh0rKxzPYl4hGSwoAsMz
+nCCrIM0DSPOUoBHt2GYW87DKzkOizYwL99qIkhhChfNNEtY2q43yX0qsWsQQVpvF
+YZEsuSqe7XBY7QZN5yi0akQXRsZ/LYzIZJbVNaqKfGyzmyxmwkCpTMlh0jwpjqQB
+xVM0iCFwgdVkw0aTxmAhx5Pq0frgfNUSAigoNOQhCQDLkpKMGAAp9f2AQDESw7I0
+I8pYEhQFAgGJgoxEbRtAgArFAIUhtKH2mS2EgWbUnGKW6mk3ZZlFh9OGiZLvPW8F
+6PRBupUr/LT/pQsKDHn062rh2gdP+5XvGflt4erN2RcG2/WBTUVvr7iQLMetjy5s
++K5/18Z7N7wZoyXfuiu+uW7tbU5xb3LWj1kP3C5NWm2wtxypzWz2vWnqm3/tob93
+OvCUNHc27xKoOBxZ5jsXa7x1LASVjnqqqXQ39j1VXHNNyJ/89PMTRedXscFPeplw
+R13VxiRXSKQ3OvT0UN2clB7f59XvjzD2/7rkTvZ5/oze3hRsDGw7sZDYFSc/dJZX
+pXZ37DS4VlbPVnb6/qZ7P3Kd26PbHsU/b+9sPzj2+EzowaqvnjieMdI480ZChDt8
+PM0df8NyZyAyRbo3+HpPZnVyvBL7WHRHRnZGY030Vk/YYkrF/oi9wcb3snR53ePF
+LSmWsuGJzfXFr1z5sjJ9Q+O6/KE69FzBtvOxdxc/EDN902Fba3ZPXE/dF0J8TVI/
+ht1qHj5VOVj0Kr44lZGQi5+507F68zuXq3PWFreCqWCxvefnk39dk3X9a04fS3OV
+HVHet7QScVEdO2Z2Jhx3hjctsbqOhQD93KxuMqm0Yfp2eXYPEXH4pV2/bFu1Zejk
+h6XMqN99kWtpu7REuDclKr8PF5w941++ZUdXn1Q6nxiwyG14kfOeMX/xyWe983fT
+3b6bUxPF47uvrJf/OGR8t3JyZKx0ZCDuQOfR7qs/rbucFtzvcX1MtXZNRDUEFEjN
+PzguTEqph/iZwrZ/AFuGx6Y=
+=shaQ
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mbarneyjr
+
+==================================================================
