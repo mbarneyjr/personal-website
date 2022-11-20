@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     container: ghcr.io/mbarneyjr/ci-docker-image:latest
     environment:
-      name: prod
+      name: ${{ needs.get_short_ref.outputs.short_ref }}
       url: https://${{ needs.get_short_ref.outputs.short_ref }}.mbarney.me
     env:
       ENVIRONMENT_NAME: ${{ needs.get_short_ref.outputs.short_ref }}
