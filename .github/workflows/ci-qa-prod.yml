@@ -29,7 +29,9 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     container: ghcr.io/mbarneyjr/ci-docker-image:latest
-    environment: qa
+    environment:
+      name: qa
+      url: https://qa.mbarney.me
     env:
       TARGET_ACCOUNT_ID: ${{ secrets.QA_ACCOUNT_ID }}
       ENVIRONMENT_NAME: qa
@@ -64,7 +66,9 @@ jobs:
     needs: deploy_qa
     runs-on: ubuntu-latest
     container: ghcr.io/mbarneyjr/ci-docker-image:latest
-    environment: prod
+    environment:
+      name: prod
+      url: https://mbarney.me
     env:
       TARGET_ACCOUNT_ID: ${{ secrets.PROD_ACCOUNT_ID }}
       ENVIRONMENT_NAME: prod
