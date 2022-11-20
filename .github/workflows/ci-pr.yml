@@ -50,9 +50,6 @@ jobs:
     needs: [ get_short_ref, test ]
     runs-on: ubuntu-latest
     container: ghcr.io/mbarneyjr/ci-docker-image:latest
-    environment:
-      name: ${{ needs.get_short_ref.outputs.short_ref }}
-      url: https://${{ needs.get_short_ref.outputs.short_ref }}.dev.mbarney.me
     env:
       ENVIRONMENT_NAME: ${{ needs.get_short_ref.outputs.short_ref }}
       DOMAIN_NAME: ${{ needs.get_short_ref.outputs.short_ref }}.dev.mbarney.me
