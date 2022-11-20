@@ -33,7 +33,9 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     container: ghcr.io/mbarneyjr/ci-docker-image:latest
-    environment: dev
+    environment:
+      name: dev
+      url: https://dev.mbarney.me
     steps:
       - uses: actions/checkout@v3
       - name: Assume role
