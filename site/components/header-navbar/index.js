@@ -20,10 +20,6 @@ class HeaderNavbar extends HTMLElement {
             <i class="fa fa-large fa-twitter"></i>
             twitter
           </a></li>
-          <li><a aria-label="snapchat" href="https://snapchat.com/add/michaelrbarney" class="nav-link" style="color: #FFFC00">
-            <i class="fa fa-large fa-snapchat"></i>
-            snapchat
-          </a></li>
           <li><a aria-label="instagram" href="https://instagram.com/mbarneyme" class="nav-link" style="color: #C13584">
             <i class="fa fa-large fa-instagram"></i>
             instagram

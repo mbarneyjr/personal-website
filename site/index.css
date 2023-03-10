@@ -71,13 +71,17 @@
 .project-technology:not(:last-child) {
   margin-right: 1em;
 }
+
 .project-description {
   font-style: italic;
   filter: brightness(75%);
-  align-self: stretch;
-  flex-grow: 1;
+}
+
+.project-links {
+  all: unset;
+  display: flex;
+  gap: 1rem;
 }
 .project-link {
-  flex-grow: 0;
   color: var(--light-color);
 }
