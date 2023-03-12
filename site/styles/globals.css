@@ -18,16 +18,9 @@ html body {
   color: var(--light-color);
 }
 
-a {
-  color: var(--light-color);
-  filter: brightness(175%);
-}
-
-.zoom {
-  transition: all .2s;
-}
-.zoom:hover {
-  transform: scale(1.25)
+.main-content {
+  max-width: 1024px;
+  margin: auto;
 }
 
 .section-header {
@@ -37,13 +30,23 @@ a {
 }
 
 .content-card {
-  margin: auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding: 2em;
-  max-width: 1024px;
+  padding: 1rem;
   background-color: var(--dim-color);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.content-title {
+  font-family: 'Acme';
+  font-size: 2rem;
+  text-align: center;
+  margin: unset;
+}
+.content-subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  text-align: center;
+}
+.content-link {
+  color: inherit;
 }
 
 /* List items */
@@ -67,13 +70,11 @@ a {
 .list-item-subtitle {
   width: 100%;
   text-align: left;
-  filter: brightness(75%);
   font-style: italic;
 }
 .list-item-value {
   width: 100%;
   text-align: right;
-  filter: brightness(75%);
   font-style: italic;
 }
 
@@ -87,7 +88,7 @@ a {
     color: var(--dark-color);
   }
   .content-card {
-    box-shadow: none;
+    box-shadow: none !important;
   }
   header-navbar {
     display: none;

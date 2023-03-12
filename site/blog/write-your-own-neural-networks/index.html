@@ -23,7 +23,7 @@
   <header-navbar></header-navbar>
 
   <!-- Blog Post -->
-  <div class="content-card">
+  <div class="main-content content-card">
     <h1>Write your own neural network!</h1>
     <ul class="blog-stats">
       <ul>14 min read</ul>
@@ -39,12 +39,12 @@
       <figcaption>Credit to 3Blue1Brown for amazing visualizations like this (Without the JS logo)</figcaption>
     </figure>
     <p>Ever since I first learned about neural networks, I have always wanted to learn how to develop and use them. At that time I was pretty intimidated and overwhelmed by the utilities available for neural networks and deep learning.</p>
-    <p>After watching the <em>very</em> educational <a target="_blank" href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw">3Blue1Brown</a> and <a target="_blank" href="https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw">The Coding Train</a> YouTube videos on neural networks, I got some inspiration to buckle down and finally write a neural network. So now I want to share what I did, how I did it, and what my overall experience was.</p>
+    <p>After watching the <em>very</em> educational <a class="content-link" target="_blank" href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw">3Blue1Brown</a> and <a class="content-link" target="_blank" href="https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw">The Coding Train</a> YouTube videos on neural networks, I got some inspiration to buckle down and finally write a neural network. So now I want to share what I did, how I did it, and what my overall experience was.</p>
     <p>This post will be broken down into a few sections. First some background on what exactly a neural network is, then an overview of what I produced, and finally how I did it.</p>
     <blockquote>Note that this implementation is not supposed to be optimized in any way, it's intent is to be easily understandable and to help others and myself understand how neural networks work. I am by no means a JavaScript guru (one of the reasons I decided to do this in Javascript is so that I could get better at it), so if there is some way I could improve the code to make it more understandable/readable, please let me know!</blockquote>
 
     <h2>So what exactly <em>is</em> a neural network?</h2>
-    <blockquote>If you don't know what a neural network is, <a target="_blank" href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">this playlist</a> is one of the most helpful resources out there for understanding them. If anything I explain doesn't make sense, it's likely explained better there.</blockquote>
+    <blockquote>If you don't know what a neural network is, <a class="content-link" target="_blank" href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">this playlist</a> is one of the most helpful resources out there for understanding them. If anything I explain doesn't make sense, it's likely explained better there.</blockquote>
     <p>First, I'll explain what a perceptron is. A perceptron represents a weighted sum of inputs (and optionally a bias) sent through an activation function. A perceptron can be pictured like this.</p>
     <figure>
       <img src="/blog/write-your-own-neural-networks/images/perceptron.png" alt="a single perceptron" id="neural-network">
@@ -129,7 +129,7 @@
     <p>Training multilayer perceptrons can be pretty tricky. The values of each of those weights and biases determine what the model does. You could have the same model but with different weights and biases, and the model could perform two different things. When training, you want to find the right values for each of those weights and biases that make the model correctly solve the problem at hand. Adjusting those weights and biases requires high-dimensional calculus (to figure out how to adjust those weights and biases to minimize error) and a lot of computational resources.</p>
 
     <h2>What I did</h2>
-    <p>Now that we understand what a neural network is, lets go over what I made. You can find all of the code <a target="_blank" href="https://github.com/mbarneyjr/multilayerperceptron-js">here</a>. So I made a mini "library," and to show you how it's used, we'll solve the XOR problem with it!</p>
+    <p>Now that we understand what a neural network is, lets go over what I made. You can find all of the code <a class="content-link" target="_blank" href="https://github.com/mbarneyjr/multilayerperceptron-js">here</a>. So I made a mini "library," and to show you how it's used, we'll solve the XOR problem with it!</p>
     <p>First lets gather the data into a javascript object. We need to make sure the labels line up with the data.</p>
     <blockquote>Note that it's very unlikely, for most problems, that you'll have the entire problem domain in your dataset like we do here. Often times you'll split your gathered data into two datasets: one for training and one for evaluating your model's performance on data it hasn't been trained on.</blockquote>
 
@@ -361,8 +361,8 @@ train(options) {
     <p>Now you have successfully written your own neural network! Hopefully through doing this, you have a much better idea of how neural networks work, and can go out and learn higher level libraries like Keras or even Tensorflow, and not just understand how to use them, but what is going on behind the scenes.</p>
 
     <h2>Acknowledgements</h2>
-    <p>This project was inspried greatly from <a target="_blank" href="https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw">The Coding Train</a>. A lot of the code itself is based on his implementation; this implementation mainly extends the functionality of his library.</p>
-    <p>A lot of my time spent researching ultimately led to me watching the <a target="_blank" href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw">3Blue1Brown</a> videos, I 110% recommend that anyone who is the slightest bit curious watch those videos.</p>
+    <p>This project was inspried greatly from <a class="content-link" target="_blank" href="https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw">The Coding Train</a>. A lot of the code itself is based on his implementation; this implementation mainly extends the functionality of his library.</p>
+    <p>A lot of my time spent researching ultimately led to me watching the <a class="content-link" target="_blank" href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw">3Blue1Brown</a> videos, I 110% recommend that anyone who is the slightest bit curious watch those videos.</p>
     <p>Thank you for reading! If you have any questions or comments, let me know! I'm always open to feedback!</p>
   </div>
 </body>
