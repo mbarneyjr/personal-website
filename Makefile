@@ -17,6 +17,9 @@ node_modules/all: package-lock.json
 	npm ci
 	touch node_modules/all
 
+artifacts/:
+	mkdir -p artifacts
+
 .PHONY: lint create-change-set deploy-change-set delete site/rum.json upload clean
 dependencies: node_modules/all
 	pip install -r requirements.txt
@@ -24,7 +27,7 @@ dependencies: node_modules/all
 lint:
 	cfn-lint
 
-create-change-set: node_modules/all
+create-change-set: node_modules/all artifacts/
 	./scripts/create-change-set.sh
 
 deploy-change-set: node_modules/all
