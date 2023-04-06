@@ -30,6 +30,9 @@ delete:
 	./scripts/empty-s3-bucket.sh --bucket ${APPLICATION_NAME}-${ENVIRONMENT_NAME}
 	aws cloudformation delete-stack --stack-name ${STACK_NAME}
 
-upload:
+.PHONY: site/rum.json
+site/rum.json:
 	aws rum get-app-monitor --region ${AWS_REGION} --name ${APPLICATION_NAME}-${ENVIRONMENT_NAME}-rum > site/rum.json
+
+upload: site/rum.json
 	aws s3 sync site s3://${STACK_NAME} --delete
