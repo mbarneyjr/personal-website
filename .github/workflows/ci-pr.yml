@@ -64,6 +64,7 @@ jobs:
       - id: create_change_set
         name: Create Change Set
         run: |
+          echo "CHANGE SET NAME: ${CHANGE_SET_NAME}"
           make create-change-set
           export CHANGE_SET_STATUS_REASON="$(cat artifacts/${STACK_NAME}-${CHANGE_SET_NAME}.json | jq -r .StatusReason)"
           if [[ "$CHANGE_SET_STATUS_REASON" == "The submitted information didn't contain changes. Submit different information to create a change set." ]];
