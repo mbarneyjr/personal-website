@@ -186,13 +186,16 @@ Resources:
 
           async function flushBatch(logEntries, logStreamName) {
             const failures = [];
+            const sortedLogEntries = logEntries
+              .sort((a, b) => new Date(`${a.date} ${a.time}`).getTime() < new Date(`${b.date} ${b.time}`).getTime() ? -1 : 1)
+              .map((logEntry) => ({
+                message: JSON.stringify(logEntry),
+                timestamp: new Date(`${logEntry.date} ${logEntry.time}`).getTime(),
+              }))
             const result = await logs.send(new PutLogEventsCommand({
               logGroupName: process.env.LOG_GROUP,
               logStreamName,
-              logEvents: logEntries.map((logEntry) => ({
-                message: JSON.stringify(logEntry),
-                timestamp: new Date(`${logEntry.date} ${logEntry.time}`).getTime(),
-              })),
+              logEvents: sortedLogEntries,
             }));
             if (result.rejectedLogEventsInfo) {
               console.error(JSON.stringify({ message: 'Rejected log events', rejectedLogEventsInfo: result.rejectedLogEventsInfo }));
@@ -249,6 +252,7 @@ Resources:
               throw new Error(`Error processing event: ${JSON.stringify({ failures })}`);
             }
           };
+
   SiteLogForwarderLogs:
     Type: AWS::Logs::LogGroup
     UpdateReplacePolicy: Delete
