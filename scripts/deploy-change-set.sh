@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -euo pipefail
+
 export CHANGE_SET_STATUS=$(aws cloudformation describe-change-set --stack-name ${STACK_NAME} --change-set-name ${CHANGE_SET_NAME} --output text --query 'Status')
 if [[ "${CHANGE_SET_STATUS}" == "FAILED" ]]; then
   export CHANGE_SET_STATUS_REASON=$(aws cloudformation describe-change-set --stack-name ${STACK_NAME} --change-set-name ${CHANGE_SET_NAME} --output text --query 'StatusReason')

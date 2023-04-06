@@ -1,4 +1,6 @@
-#!/bin/bash -euo pipefail
+#!/bin/bash
+
+set -euo pipefail
 
 echo "Deploying ${STACK_NAME} with changeset ${CHANGE_SET_NAME}"
 
