@@ -9,30 +9,38 @@ export CHANGE_SET_DESCRIPTION
 export DOMAIN_NAME
 export HOSTED_ZONE_NAME
 
-node_modules: package-lock.json
-	npm ci
-	touch node_modules
+node_modules/prod: package-lock.json
+	npm ci --production
+	touch node_modules/prod
 
-.PHONY: lint create-change-set deploy-change-set delete upload clean
-dependencies: node_modules
+node_modules/all: package-lock.json
+	npm ci
+	touch node_modules/all
+
+.PHONY: lint create-change-set deploy-change-set delete site/rum.json upload clean
+dependencies: node_modules/all
 	pip install -r requirements.txt
 
 lint:
 	cfn-lint
 
-create-change-set: node_modules
+create-change-set: node_modules/all
 	./scripts/create-change-set.sh
 
-deploy-change-set: node_modules
+deploy-change-set: node_modules/all
 	./scripts/deploy-change-set.sh
 
 delete:
 	./scripts/empty-s3-bucket.sh --bucket ${APPLICATION_NAME}-${ENVIRONMENT_NAME}
 	aws cloudformation delete-stack --stack-name ${STACK_NAME}
 
-.PHONY: site/rum.json
 site/rum.json:
 	aws rum get-app-monitor --region ${AWS_REGION} --name ${APPLICATION_NAME}-${ENVIRONMENT_NAME}-rum > site/rum.json
 
 upload: site/rum.json
 	aws s3 sync site s3://${STACK_NAME} --delete
+
+clean:
+	rm -rf aritfacts
+	rm -rf node_modules
+	rm -rf site/rum.json
