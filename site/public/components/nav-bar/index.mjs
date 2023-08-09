@@ -52,7 +52,7 @@ navBar.innerHTML = /* html */ `
   </style>
   <nav class="navbar" part="navbar">
     <slot name="title" class="title" part="title"></slot>
-    <div class="navbar-toggle" part="toggle"><span></span><span></span><span></span> </div>
+    <div class="navbar-toggle" part="toggle"><span part="toggle-line"></span><span part="toggle-line"></span><span part="toggle-line"></span> </div>
     <div class="targets" part="targets">
       <slot></slot>
     </div>
