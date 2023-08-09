@@ -14,14 +14,23 @@
   <link rel="stylesheet" href="/styles/globals.css">
   <link rel="stylesheet" href="/index.css">
   <link rel="stylesheet" href="./index.css">
-  <link rel="stylesheet" href="/components/header-navbar/index.css">
 
   <script src="/index.js" type="text/javascript" defer></script>
-  <script src="/components/header-navbar/index.js" type="text/javascript" defer></script>
+  <script src="/public/components/nav-bar/index.mjs" defer></script>
 </head>
 
 <body>
-  <header-navbar></header-navbar>
+  <header>
+    <nav-bar breakpoint="720px">
+      <a class="nav-title" href="/" slot="title">Michael Barney</a>
+      <a class="link" aria-label="github" href="https://github.com/mbarneyjr" style="color: #fff">github<i class="fa fa-large fa-github"></i></a>
+      <a class="link" aria-label="reddit" href="https://reddit.com/user/mbarneyme" style="color: #FF4500">reddit<i class="fa fa-large fa-reddit"></i></a>
+      <a class="link" aria-label="instagram" href="https://instagram.com/mbarneyme" style="color: #C13584">instagram<i class="fa fa-large fa-instagram"></i></a>
+      <a class="link" aria-label="twitter" href="https://twitter.com/mbarneyjr" style="color: #1DA1F2">twitter<i class="fa fa-large fa-twitter"></i></a>
+      <a class="link active" aria-label="resume" href="/resume" style="color: var(--light-color);">resume<i class="fa fa-large fa-file-text"></i></a>
+      <a class="link" aria-label="blog" href="/blog" style="color: var(--light-color);">blog<i class="fa fa-large fa-rss-square"></i></a>
+    </nav-bar>
+  </header>
   <div class="content-card">
     <h1>Michael Richard Barney, Jr.</h1>
     <p>South Bend, IN | <a class="content-link" href="/">mbarney.me</a></p>

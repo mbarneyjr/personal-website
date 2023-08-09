@@ -24,8 +24,9 @@ artifacts/:
 dependencies: node_modules/all
 	pip install -r requirements.txt
 
-lint:
+lint: node_modules/all
 	cfn-lint
+	npx eslint .
 
 create-change-set: node_modules/all artifacts/
 	./scripts/create-change-set.sh

@@ -20,4 +20,4 @@
     'https://client.rum.us-east-1.amazonaws.com/1.5.x/cwr.js',
     rumSettings,
   );
-})()
+})();
