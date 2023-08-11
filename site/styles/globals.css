@@ -26,6 +26,10 @@ nav-bar {
   margin-bottom: 1rem;
 }
 
+nav-bar::part(navbar) {
+  max-width: 1024px;
+  margin: auto;
+}
 nav-bar a,
 nav-bar::part(toggle) {
   padding: 1rem;
