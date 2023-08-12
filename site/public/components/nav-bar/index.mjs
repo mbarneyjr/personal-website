@@ -76,10 +76,6 @@ class NavBar extends HTMLElement {
           /* hide the targets by default */
           display: none;
         }
-        .targets ::slotted(a) {
-          /* when expanded, each target should take up the full width */
-          width: 100%;
-        }
         .navbar-toggle {
           /* show the toggle */
           display: flex;
