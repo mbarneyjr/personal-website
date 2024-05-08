@@ -3,3 +3,5 @@ site/rum.json
 node_modules
 *.local
 *.local.*
+.venv
+dependencies

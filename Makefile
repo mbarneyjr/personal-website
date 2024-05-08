@@ -21,8 +21,9 @@ artifacts/:
 	mkdir -p artifacts
 
 .PHONY: lint create-change-set deploy-change-set delete site/rum.json upload clean
-dependencies: node_modules/all
-	pip install -r requirements.txt
+dependencies: requirements.txt node_modules/all
+	pip3 install -r requirements.txt
+	touch dependencies
 
 lint: dependencies
 	cfn-lint
