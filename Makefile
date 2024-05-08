@@ -10,7 +10,7 @@ export DOMAIN_NAME
 export HOSTED_ZONE_NAME
 
 node_modules/prod: package-lock.json
-	npm ci --production
+	npm ci --omit dev
 	touch node_modules/prod
 
 node_modules/all: package-lock.json
