@@ -35,7 +35,7 @@ jobs:
         name: Testing
         run: |
           echo "GITHUB_HEAD_REF: ${GITHUB_HEAD_REF}"
-          export SHORT_REF=$(echo ${GITHUB_HEAD_REF/feature\//} | cut -c -16)
+          export SHORT_REF=$(echo ${GITHUB_HEAD_REF} | sed 's/\///g' | sed 's/-//g' | cut -c 1-16)
           echo "SHORT_REF: ${SHORT_REF}"
           echo "short_ref=${SHORT_REF}" >> $GITHUB_OUTPUT
   test:
