@@ -21,10 +21,11 @@ artifacts/:
 	mkdir -p artifacts
 
 .PHONY: lint create-change-set deploy-change-set delete site/rum.json upload clean
-dependencies: node_modules/all
-	pip install -r requirements.txt
+dependencies: requirements.txt node_modules/all
+	pip3 install -r requirements.txt
+	touch dependencies
 
-lint: node_modules/all
+lint: dependencies
 	cfn-lint
 	npx eslint .
 
@@ -36,6 +37,7 @@ deploy-change-set: node_modules/all
 
 delete:
 	./scripts/empty-s3-bucket.sh --bucket ${APPLICATION_NAME}-${ENVIRONMENT_NAME}
+	./scripts/empty-s3-bucket.sh --bucket ${APPLICATION_NAME}-${ENVIRONMENT_NAME}-cloudfront-logs
 	aws cloudformation delete-stack --stack-name ${STACK_NAME}
 
 site/rum.json:

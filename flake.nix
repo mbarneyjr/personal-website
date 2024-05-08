@@ -22,6 +22,10 @@
             pkgs.nodejs_20
             pkgs.python313
           ];
+          shellHook = ''
+            python3 -m venv .venv
+            source .venv/bin/activate
+          '';
         };
     in
     {

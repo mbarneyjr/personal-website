@@ -27,7 +27,6 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: ghcr.io/mbarneyjr/ci-docker-image:latest
     steps:
       - uses: actions/checkout@v4
       - name: lint
@@ -36,14 +35,13 @@ jobs:
   deploy_prod:
     needs: test
     runs-on: ubuntu-latest
-    container: ghcr.io/mbarneyjr/ci-docker-image:latest
     environment:
       name: prod
       url: https://mbarney.me
     steps:
       - uses: actions/checkout@v4
       - name: Assume role
-        uses: aws-actions/configure-aws-credentials@v1-node16
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-2
           role-to-assume: arn:aws:iam::${{ env.TARGET_ACCOUNT_ID }}:role/github-actions
