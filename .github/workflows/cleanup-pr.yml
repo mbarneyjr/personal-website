@@ -32,7 +32,6 @@ jobs:
           echo "short_ref=${SHORT_REF}" >> $GITHUB_OUTPUT
   cleanup_pr:
     runs-on: ubuntu-latest
-    container: ghcr.io/mbarneyjr/ci-docker-image:latest
     needs: get_short_ref
     env:
       ENVIRONMENT_NAME: ${{ needs.get_short_ref.outputs.short_ref }}

@@ -40,7 +40,6 @@ jobs:
           echo "short_ref=${SHORT_REF}" >> $GITHUB_OUTPUT
   test:
     runs-on: ubuntu-latest
-    container: ghcr.io/mbarneyjr/ci-docker-image:latest
     steps:
       - uses: actions/checkout@v4
       - name: lint
@@ -49,7 +48,6 @@ jobs:
   deploy_pr:
     needs: [ get_short_ref, test ]
     runs-on: ubuntu-latest
-    container: ghcr.io/mbarneyjr/ci-docker-image:latest
     env:
       ENVIRONMENT_NAME: ${{ needs.get_short_ref.outputs.short_ref }}
       DOMAIN_NAME: ${{ needs.get_short_ref.outputs.short_ref }}.dev.mbarney.me

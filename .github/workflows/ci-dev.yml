@@ -24,7 +24,6 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: ghcr.io/mbarneyjr/ci-docker-image:latest
     steps:
       - uses: actions/checkout@v4
       - name: lint
@@ -33,7 +32,6 @@ jobs:
   deploy_dev:
     needs: test
     runs-on: ubuntu-latest
-    container: ghcr.io/mbarneyjr/ci-docker-image:latest
     environment:
       name: dev
       url: https://dev.mbarney.me
