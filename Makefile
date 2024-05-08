@@ -24,7 +24,7 @@ artifacts/:
 dependencies: node_modules/all
 	pip install -r requirements.txt
 
-lint: node_modules/all
+lint: dependencies
 	cfn-lint
 	npx eslint .
 
