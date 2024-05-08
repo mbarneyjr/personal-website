@@ -12,7 +12,7 @@ on:
 env:
   DEVOPS_ACCOUNT_ID: ${{ secrets.DEVOPS_ACCOUNT_ID }}
   CHANGE_SET_NAME: release-${{ github.run_number }}-${{ github.run_attempt }}
-  CHANGE_SET_DESCRIPTION: ${{ github.event.head_commit.message }}
+  CHANGE_SET_DESCRIPTION: ${{ github.ref_name }}
   APPLICATION_NAME: mbarneyme
   TARGET_ACCOUNT_ID: ${{ secrets.PROD_ACCOUNT_ID }}
   ENVIRONMENT_NAME: prod
