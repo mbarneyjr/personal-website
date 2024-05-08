@@ -1,20 +1,23 @@
-name: release-dev
+name: release-prod
 
 on:
-  workflow_dispatch: {}
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      execute:
+        type: boolean
+        description: Execute the change set
+        required: false
+        default: false
 
 env:
   DEVOPS_ACCOUNT_ID: ${{ secrets.DEVOPS_ACCOUNT_ID }}
-  TARGET_ACCOUNT_ID: ${{ secrets.DEV_ACCOUNT_ID }}
   CHANGE_SET_NAME: release-${{ github.run_number }}-${{ github.run_attempt }}
   CHANGE_SET_DESCRIPTION: ${{ github.event.head_commit.message }}
   APPLICATION_NAME: mbarneyme
-  ENVIRONMENT_NAME: dev
-  HOSTED_ZONE_NAME: dev.mbarney.me
-  DOMAIN_NAME: dev.mbarney.me
+  TARGET_ACCOUNT_ID: ${{ secrets.PROD_ACCOUNT_ID }}
+  ENVIRONMENT_NAME: prod
+  HOSTED_ZONE_NAME: mbarney.me
+  DOMAIN_NAME: mbarney.me
 
 permissions:
   id-token: write
@@ -30,13 +33,13 @@ jobs:
       - name: lint
         run: |
           make lint
-  deploy_dev:
+  deploy_prod:
     needs: test
     runs-on: ubuntu-latest
     container: ghcr.io/mbarneyjr/ci-docker-image:latest
     environment:
-      name: dev
-      url: https://dev.mbarney.me
+      name: prod
+      url: https://mbarney.me
     steps:
       - uses: actions/checkout@v3
       - name: Assume role
@@ -55,12 +58,11 @@ jobs:
             echo "no_changes=true" >> $GITHUB_OUTPUT
           fi;
       - name: Execute Change Set
-        if: ${{ steps.create_change_set.outputs.no_changes != 'true' }}
+        if: ${{ steps.create_change_set.outputs.no_changes != 'true' && github.event.inputs.execute == true }}
         run: |
           make deploy-change-set
       - name: Deploy site assets
+        if: ${{ github.event.inputs.execute == true }}
         id: deploy_site
         run: |
           make upload
-
-
