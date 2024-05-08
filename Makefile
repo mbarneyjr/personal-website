@@ -37,6 +37,7 @@ deploy-change-set: node_modules/all
 
 delete:
 	./scripts/empty-s3-bucket.sh --bucket ${APPLICATION_NAME}-${ENVIRONMENT_NAME}
+	./scripts/empty-s3-bucket.sh --bucket ${APPLICATION_NAME}-${ENVIRONMENT_NAME}-cloudfront-logs
 	aws cloudformation delete-stack --stack-name ${STACK_NAME}
 
 site/rum.json:
