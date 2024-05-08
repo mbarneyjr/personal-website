@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     container: ghcr.io/mbarneyjr/ci-docker-image:latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: lint
         run: |
           make lint
@@ -54,7 +54,7 @@ jobs:
       ENVIRONMENT_NAME: ${{ needs.get_short_ref.outputs.short_ref }}
       DOMAIN_NAME: ${{ needs.get_short_ref.outputs.short_ref }}.dev.mbarney.me
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Assume role
         uses: aws-actions/configure-aws-credentials@v1-node16
         with:

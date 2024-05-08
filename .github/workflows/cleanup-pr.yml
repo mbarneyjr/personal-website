@@ -37,7 +37,7 @@ jobs:
     env:
       ENVIRONMENT_NAME: ${{ needs.get_short_ref.outputs.short_ref }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Assume role
         uses: aws-actions/configure-aws-credentials@v1-node16
         with:
