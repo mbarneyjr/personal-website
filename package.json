@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "cfn-changeset-viewer": "^0.0.3",
+    "cfn-changeset-viewer": "^0.0.4",
     "cfn-event-tailer": "^0.0.2",
     "eslint": "^8.46.0"
   }
