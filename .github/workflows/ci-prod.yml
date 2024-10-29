@@ -10,7 +10,6 @@ on:
         default: false
 
 env:
-  DEVOPS_ACCOUNT_ID: ${{ secrets.DEVOPS_ACCOUNT_ID }}
   CHANGE_SET_NAME: release-${{ github.run_number }}-${{ github.run_attempt }}
   CHANGE_SET_DESCRIPTION: ${{ github.ref_name }}
   APPLICATION_NAME: mbarneyme

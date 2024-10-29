@@ -14,7 +14,6 @@ on:
 
 env:
   TARGET_ACCOUNT_ID: ${{ secrets.DEV_ACCOUNT_ID }}
-  DEVOPS_ACCOUNT_ID: ${{ secrets.DEVOPS_ACCOUNT_ID }}
   CHANGE_SET_NAME: release-${{ github.run_number }}-${{ github.run_attempt }}
   CHANGE_SET_DESCRIPTION: ${{ github.event.pull_request.title }}
   APPLICATION_NAME: mbarneyme

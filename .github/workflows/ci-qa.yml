@@ -6,7 +6,6 @@ on:
     tags: '*'
 
 env:
-  DEVOPS_ACCOUNT_ID: ${{ secrets.DEVOPS_ACCOUNT_ID }}
   CHANGE_SET_NAME: release-${{ github.run_number }}-${{ github.run_attempt }}
   CHANGE_SET_DESCRIPTION: ${{ github.event.head_commit.message }}
   APPLICATION_NAME: mbarneyme

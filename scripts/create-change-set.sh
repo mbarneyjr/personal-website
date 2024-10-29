@@ -18,7 +18,7 @@ aws cloudformation create-change-set \
       Key=workload,Value=${APPLICATION_NAME}-${ENVIRONMENT_NAME} \
   --capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_NAMED_IAM CAPABILITY_IAM \
   --change-set-name ${CHANGE_SET_NAME} \
-  --description "${CHANGE_SET_DESCRIPTION}" \
+  --description "${CHANGE_SET_DESCRIPTION:-$(date -u +"%Y%m%d%H%M%SZ")}" \
   --include-nested-stacks \
   --change-set-type $(aws cloudformation describe-stacks --stack-name ${STACK_NAME} &> /dev/null && echo "UPDATE" || echo "CREATE")
 
