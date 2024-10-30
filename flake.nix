@@ -20,7 +20,7 @@
           buildInputs = [
             pkgs.awscli2
             pkgs.nodejs_20
-            pkgs.python313
+            pkgs.python312
           ];
           shellHook = ''
             python3 -m venv .venv

@@ -1,4 +1,16 @@
 {
+  "name": "personal-website",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "scripts": {
+    "lint": "cfn-lint && eslint .",
+    "infra:barneydev:deploy": "cd ./infra/barneydev && ./deploy.sh",
+    "infra:barneydev:delete": "cd ./infra/barneydev && ./delete.sh"
+  },
+  "dependencies": {},
   "devDependencies": {
     "cfn-changeset-viewer": "^0.0.4",
     "cfn-event-tailer": "^0.0.2",

@@ -1,4 +1,4 @@
-site/rum.json
+rum.json
 /artifacts
 node_modules
 *.local

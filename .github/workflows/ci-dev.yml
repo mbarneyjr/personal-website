@@ -10,10 +10,7 @@ env:
   TARGET_ACCOUNT_ID: ${{ secrets.DEV_ACCOUNT_ID }}
   CHANGE_SET_NAME: release-${{ github.run_number }}-${{ github.run_attempt }}
   CHANGE_SET_DESCRIPTION: ${{ github.event.head_commit.message }}
-  APPLICATION_NAME: mbarneyme
   ENVIRONMENT_NAME: dev
-  HOSTED_ZONE_NAME: dev.mbarney.me
-  DOMAIN_NAME: dev.mbarney.me
 
 permissions:
   id-token: write
@@ -27,13 +24,15 @@ jobs:
       - uses: actions/checkout@v4
       - name: lint
         run: |
-          make lint
+          pip install -r requirements.txt
+          npm ci
+          npm run lint
   deploy_dev:
     needs: test
     runs-on: ubuntu-latest
     environment:
       name: dev
-      url: https://dev.mbarney.me
+      url: https://dev.barney.dev
     steps:
       - uses: actions/checkout@v4
       - name: Assume role
@@ -42,22 +41,7 @@ jobs:
           aws-region: us-east-2
           role-to-assume: arn:aws:iam::${{ env.TARGET_ACCOUNT_ID }}:role/github-actions
           role-session-name: GitHubActions-${{ github.run_id }}
-      - id: create_change_set
-        name: Create Change Set
+      - name: Deploy
         run: |
-          make create-change-set
-          export CHANGE_SET_STATUS_REASON="$(cat artifacts/${STACK_NAME}-${CHANGE_SET_NAME}.json | jq -r .StatusReason)"
-          if [[ "$CHANGE_SET_STATUS_REASON" == "The submitted information didn't contain changes. Submit different information to create a change set." ]];
-          then
-            echo "no_changes=true" >> $GITHUB_OUTPUT
-          fi;
-      - name: Execute Change Set
-        if: ${{ steps.create_change_set.outputs.no_changes != 'true' }}
-        run: |
-          make deploy-change-set
-      - name: Deploy site assets
-        id: deploy_site
-        run: |
-          make upload
-
-
+          npm ci
+          npm run infra:barneydev:deploy

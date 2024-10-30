@@ -10,7 +10,6 @@ on:
 
 env:
   TARGET_ACCOUNT_ID: ${{ secrets.DEV_ACCOUNT_ID }}
-  APPLICATION_NAME: mbarneyme
 
 permissions:
   id-token: write
@@ -43,6 +42,7 @@ jobs:
           aws-region: us-east-2
           role-to-assume: arn:aws:iam::${{ env.TARGET_ACCOUNT_ID }}:role/github-actions
           role-session-name: GitHubActions-${{ github.run_id }}
-      - name: Delete environment
+      - name: Deploy
         run: |
-          make delete
+          npm ci
+          npm run infra:barneydev:delete

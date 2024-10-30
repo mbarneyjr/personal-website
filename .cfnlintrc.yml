@@ -1,4 +1,4 @@
 templates:
-  - template.yml
+  - infra/*/template.yml
 include_checks:
   - I
