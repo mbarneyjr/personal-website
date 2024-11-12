@@ -1,19 +1,32 @@
 {
-  "name": "personal-website",
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "barneydev",
   "version": "0.0.0",
   "main": "index.js",
   "author": "",
   "license": "ISC",
   "description": "",
+  "type": "module",
   "scripts": {
-    "lint": "cfn-lint && eslint .",
-    "infra:barneydev:deploy": "cd ./infra/barneydev && ./deploy.sh",
-    "infra:barneydev:delete": "cd ./infra/barneydev && ./delete.sh"
+    "dev": "sst dev",
+    "infra:diff": "sst diff",
+    "infra:deploy": "sst deploy",
+    "infra:remove": "sst remove",
+    "types": "tsc"
   },
-  "dependencies": {},
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
+    "@types/aws-lambda": "8.10.145",
     "cfn-changeset-viewer": "^0.0.4",
     "cfn-event-tailer": "^0.0.2",
-    "eslint": "^8.46.0"
+    "eslint": "^8.46.0",
+    "mime": "^4.0.4",
+    "sst": "^3.3.7",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "sst": "3.3.7"
   }
 }

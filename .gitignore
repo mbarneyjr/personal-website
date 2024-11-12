@@ -5,3 +5,7 @@ node_modules
 *.local.*
 .venv
 dependencies
+
+# sst
+.sst
+resource.enc

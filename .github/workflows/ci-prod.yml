@@ -4,10 +4,7 @@ on:
   workflow_dispatch: {}
 
 env:
-  CHANGE_SET_NAME: release-${{ github.run_number }}-${{ github.run_attempt }}
-  CHANGE_SET_DESCRIPTION: ${{ github.ref_name }}
   TARGET_ACCOUNT_ID: ${{ secrets.PROD_ACCOUNT_ID }}
-  ENVIRONMENT_NAME: prod
 
 permissions:
   id-token: write
@@ -15,17 +12,7 @@ permissions:
   packages: read
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: lint
-        run: |
-          pip install -r requirements.txt
-          npm ci
-          npm run lint
   deploy_prod:
-    needs: test
     runs-on: ubuntu-latest
     environment:
       name: prod
@@ -41,4 +28,5 @@ jobs:
       - name: Deploy
         run: |
           npm ci
-          npm run infra:barneydev:deploy
+          npm run types
+          npm run infra:deploy -- --stage prod
