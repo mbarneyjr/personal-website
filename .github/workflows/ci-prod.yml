@@ -28,5 +28,4 @@ jobs:
       - name: Deploy
         run: |
           npm ci
-          npm run types
           npm run infra:deploy -- --stage prod
