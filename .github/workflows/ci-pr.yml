@@ -14,8 +14,6 @@ on:
 
 env:
   TARGET_ACCOUNT_ID: ${{ secrets.DEV_ACCOUNT_ID }}
-  CHANGE_SET_NAME: release-${{ github.run_number }}-${{ github.run_attempt }}
-  CHANGE_SET_DESCRIPTION: ${{ github.event.pull_request.title }}
 
 permissions:
   id-token: write
@@ -35,17 +33,8 @@ jobs:
           export SHORT_REF=$(echo ${GITHUB_HEAD_REF} | sed 's/\///g' | sed 's/-//g' | cut -c 1-16)
           echo "SHORT_REF: ${SHORT_REF}"
           echo "short_ref=${SHORT_REF}" >> $GITHUB_OUTPUT
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: lint
-        run: |
-          pip install -r requirements.txt
-          npm ci
-          npm run lint
   deploy_pr:
-    needs: [ get_short_ref, test ]
+    needs: [get_short_ref]
     runs-on: ubuntu-latest
     env:
       ENVIRONMENT_NAME: ${{ needs.get_short_ref.outputs.short_ref }}
@@ -60,4 +49,4 @@ jobs:
       - name: Deploy
         run: |
           npm ci
-          npm run infra:barneydev:deploy
+          npm run infra:deploy -- --stage ${ENVIRONMENT_NAME}

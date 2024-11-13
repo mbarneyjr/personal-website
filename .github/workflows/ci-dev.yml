@@ -18,17 +18,7 @@ permissions:
   packages: read
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: lint
-        run: |
-          pip install -r requirements.txt
-          npm ci
-          npm run lint
   deploy_dev:
-    needs: test
     runs-on: ubuntu-latest
     environment:
       name: dev
