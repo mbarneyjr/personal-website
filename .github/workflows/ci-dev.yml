@@ -8,9 +8,6 @@ on:
 
 env:
   TARGET_ACCOUNT_ID: ${{ secrets.DEV_ACCOUNT_ID }}
-  CHANGE_SET_NAME: release-${{ github.run_number }}-${{ github.run_attempt }}
-  CHANGE_SET_DESCRIPTION: ${{ github.event.head_commit.message }}
-  ENVIRONMENT_NAME: dev
 
 permissions:
   id-token: write
@@ -34,4 +31,4 @@ jobs:
       - name: Deploy
         run: |
           npm ci
-          npm run infra:barneydev:deploy
+          npm run infra:deploy -- --stage dev
