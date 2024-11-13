@@ -26,7 +26,7 @@ const envMap: Record<string, Config> = {
 
 const config = envMap[$app.stage] ?? {
   domainName: `${$app.stage}.dev.${baseDomainName}`,
-  hostedZoneName: `${$app.stage}.dev.${baseDomainName}`,
+  hostedZoneName: `dev.${baseDomainName}`,
 };
 
 export { config };
