@@ -3,14 +3,11 @@ import { config } from './lib/config';
 import { siteBucket } from './assets';
 import { siteLogBucket } from './logging';
 
-const useast1 = new aws.Provider('useast1', { region: 'us-east-1' });
 const zone = await aws.route53.getZone({ name: config.hostedZoneName });
-const cert = await aws.acm.getCertificate({ domain: config.hostedZoneName }, { provider: useast1 });
 
 export const router = new sst.aws.Router('SiteRouter', {
   domain: {
     name: config.domainName,
-    cert: cert.arn,
     dns: sst.aws.dns({
       zone: zone.id,
     }),

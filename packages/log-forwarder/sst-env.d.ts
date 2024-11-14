@@ -22,6 +22,10 @@ declare module "sst" {
       "name": string
       "type": "sst.aws.Bucket"
     }
+    "SiteRedirect": {
+      "domainName": string
+      "type": "sst.sst.Linkable"
+    }
     "SiteRouter": {
       "type": "sst.aws.Router"
       "url": string

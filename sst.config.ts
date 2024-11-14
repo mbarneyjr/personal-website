@@ -16,6 +16,7 @@ export default $config({
       siteBucketName: infra.siteBucket.name,
       uploadedAssetsCount: infra.uploadedAssets.length,
       url: infra.router.url,
+      siteRedirects: infra.siteRedirects.map((r) => r.domainName),
     };
   },
 });

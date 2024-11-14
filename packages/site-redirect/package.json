@@ -1,0 +1,15 @@
+{
+  "name": "@barneydev/site-redirect",
+  "version": "0.0.0",
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "sst": "^3.3.9"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.145"
+  }
+}
