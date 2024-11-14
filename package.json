@@ -19,14 +19,8 @@
   ],
   "devDependencies": {
     "@types/aws-lambda": "8.10.145",
-    "cfn-changeset-viewer": "^0.0.4",
-    "cfn-event-tailer": "^0.0.2",
-    "eslint": "^8.46.0",
     "mime": "^4.0.4",
     "sst": "^3.3.7",
     "typescript": "^5.6.3"
-  },
-  "dependencies": {
-    "sst": "3.3.7"
   }
 }
