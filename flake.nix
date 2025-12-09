@@ -5,9 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = { nixpkgs, ... }:
+  outputs =
+    { nixpkgs, ... }:
     let
-      shell = { system }:
+      shell =
+        { system }:
         let
           pkgs = import nixpkgs {
             system = system;
@@ -18,7 +20,7 @@
         in
         pkgs.mkShell {
           buildInputs = [
-            pkgs.nodejs_20
+            pkgs.nodejs_24
           ];
         };
     in
@@ -29,4 +31,3 @@
       devShells.x86_64-linux.default = shell { system = "x86_64-linux"; };
     };
 }
-
