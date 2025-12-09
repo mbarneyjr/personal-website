@@ -4,6 +4,7 @@ node_modules
 *.local
 *.local.*
 .venv
+.direnv
 dependencies
 
 # sst

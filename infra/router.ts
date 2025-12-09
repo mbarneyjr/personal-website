@@ -1,6 +1,5 @@
-import { readFileSync } from 'fs';
-import { config } from './lib/config';
 import { siteBucket } from './assets';
+import { config } from './lib/config';
 import { siteLogBucket } from './logging';
 
 const zone = await aws.route53.getZone({ name: config.hostedZoneName });

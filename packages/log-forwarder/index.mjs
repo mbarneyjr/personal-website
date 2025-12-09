@@ -1,5 +1,7 @@
-const zlib = require('zlib');
+const zlib = require('node:zlib');
+
 import { Resource } from 'sst';
+
 const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 const {
   CloudWatchLogsClient,
@@ -114,7 +116,7 @@ async function forwardLogEntries(logEntries, logStreamName) {
 /**
  * @param {import('aws-lambda').S3NotificationEvent} event
  */
-export async function handler(event, context) {
+export async function handler(event, _context) {
   console.log(JSON.stringify({ event }));
   const key = event.detail.object.key;
   const bucket = event.detail.bucket.name;

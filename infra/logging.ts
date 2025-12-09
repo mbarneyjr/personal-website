@@ -49,7 +49,7 @@ const uploadTriggerRule = new aws.cloudwatch.EventRule('SiteLogForwarderUploadTr
   eventPattern: siteLogBucket.name.apply((v) =>
     JSON.stringify({
       source: ['aws.s3'],
-      ['detail-type']: ['Object Created'],
+      'detail-type': ['Object Created'],
       detail: {
         bucket: {
           name: [v],

@@ -1,5 +1,5 @@
-import { config } from './lib/config';
 import { siteBucket } from './assets';
+import { config } from './lib/config';
 
 const identity = await aws.getCallerIdentity();
 const region = await aws.getRegion();
@@ -53,7 +53,7 @@ new aws.cognito.IdentityPoolRoleAttachment('RumIdentityPoolRoleAttachment', {
   },
 });
 
-const rumLogGroup = new aws.cloudwatch.LogGroup('RumLogGroup', {
+const _rumLogGroup = new aws.cloudwatch.LogGroup('RumLogGroup', {
   name: `/${$app.name}/${$app.stage}/rum`,
 });
 
@@ -89,13 +89,13 @@ const rumConfig = $util
       2,
     ),
   );
-const rumFile = new aws.s3.BucketObjectv2('RumFile', {
+const _rumFile = new aws.s3.BucketObjectv2('RumFile', {
   bucket: siteBucket.name,
   key: 'rum.json',
   content: rumConfig,
   contentType: 'application/json',
 });
-const cwrLib = new aws.s3.BucketObjectv2('CwrFile', {
+const _cwrLib = new aws.s3.BucketObjectv2('CwrFile', {
   bucket: siteBucket.name,
   key: '/scripts/cwr.js',
   source: new $util.asset.RemoteAsset('https://client.rum.us-east-1.amazonaws.com/1.19.0/cwr.js'),

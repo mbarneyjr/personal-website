@@ -18,6 +18,7 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@biomejs/biome": "^2.3.8",
     "@types/aws-lambda": "8.10.145",
     "mime": "^4.0.4",
     "sst": "^3.3.7",

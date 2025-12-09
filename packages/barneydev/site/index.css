@@ -43,7 +43,7 @@
   width: 100%;
 }
 .project-title {
-  font-family: Acme;
+  font-family: Acme, sans-serif;
   margin: 0;
 }
 .project-technologies {

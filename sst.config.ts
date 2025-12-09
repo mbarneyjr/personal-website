@@ -1,7 +1,5 @@
 /// <reference path="./.sst/platform/config.d.ts" />
 
-import { readFileSync, writeFileSync } from 'fs';
-
 export default $config({
   app(input) {
     return {
