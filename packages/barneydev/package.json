@@ -6,5 +6,10 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "dependencies": {}
+  "scripts": {
+    "dev": "live-server ./site"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
 }
