@@ -1,33 +1,58 @@
 {
-  description = "Flake";
-
+  description = "Personal Website";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    process-compose-flake.url = "github:Platonic-Systems/process-compose-flake";
+    services-flake.url = "github:juspay/services-flake";
   };
-
   outputs =
-    { nixpkgs, ... }:
-    let
-      shell =
-        { system }:
-        let
-          pkgs = import nixpkgs {
-            system = system;
-            config = {
-              allowUnfree = true;
-            };
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
+      imports = [
+        inputs.process-compose-flake.flakeModule
+      ];
+
+      perSystem =
+        {
+          system,
+          self',
+          pkgs,
+          ...
+        }:
+        {
+
+          _module.args.pkgs = import inputs.nixpkgs {
+            inherit system;
+            overlays = (import ./nix/overlays);
           };
-        in
-        pkgs.mkShell {
-          buildInputs = [
-            pkgs.nodejs_24
-          ];
+          process-compose.dev = {
+            _module.args = {
+              flake-pkgs = self'.packages;
+            };
+            imports = [
+              inputs.services-flake.processComposeModules.default
+              ./nix/services.nix
+            ];
+          };
+          devShells.default = pkgs.mkShell {
+            packages = [
+              pkgs.nodejs_24
+              pkgs.awscli2
+              pkgs.python3Packages.cfn-lint
+              pkgs.aws-sam-cli
+              pkgs.jq
+              pkgs.yq
+              pkgs.shellcheck
+              pkgs.zip
+            ];
+          };
         };
-    in
-    {
-      devShells.aarch64-darwin.default = shell { system = "aarch64-darwin"; };
-      devShells.x86_64-darwin.default = shell { system = "x86_64-darwin"; };
-      devShells.aarch64-linux.default = shell { system = "aarch64-linux"; };
-      devShells.x86_64-linux.default = shell { system = "x86_64-linux"; };
     };
 }

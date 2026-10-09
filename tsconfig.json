@@ -1,8 +1,9 @@
 {
-  "extends": "./.sst/platform/tsconfig.json",
   "compilerOptions": {
     "skipLibCheck": true,
     "noEmit": true
   },
-  "exclude": ["packages/"]
+  "exclude": [
+    "packages/"
+  ]
 }

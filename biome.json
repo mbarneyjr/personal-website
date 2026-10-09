@@ -6,7 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "includes": ["**/*.html", "**/*.css", "**/*.*ts", "**/*.*js", "!**/sst-env.d.ts"]
+    "includes": ["**/*.html", "**/*.css", "**/*.*ts", "**/*.*js"]
   },
   "javascript": {
     "formatter": {

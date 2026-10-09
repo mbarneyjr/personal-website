@@ -7,7 +7,8 @@
   "license": "ISC",
   "description": "",
   "scripts": {
-    "dev": "live-server ./site"
+    "dev": "live-server ./site",
+    "lint": "biome check"
   },
   "devDependencies": {
     "live-server": "^1.2.2"

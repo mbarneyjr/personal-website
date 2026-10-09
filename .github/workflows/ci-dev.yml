@@ -14,21 +14,34 @@ permissions:
   contents: write
   packages: read
 
+defaults:
+  run:
+    shell: nix develop --command bash -e {0}
+
 jobs:
-  deploy_dev:
+  deploy:
     runs-on: ubuntu-latest
     environment:
       name: dev
       url: https://dev.barney.dev
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Assume role
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
-          aws-region: us-east-2
+          aws-region: us-east-1
           role-to-assume: arn:aws:iam::${{ env.TARGET_ACCOUNT_ID }}:role/github-actions
           role-session-name: GitHubActions-${{ github.run_id }}
+      - uses: cachix/install-nix-action@v31
+      - uses: DeterminateSystems/magic-nix-cache-action@v15
+      - uses: actions/setup-node@v7
+        with:
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Test
+        run: |
+          ./scripts/test.sh
       - name: Deploy
         run: |
-          npm ci
-          npm run infra:deploy -- --stage dev
+          ./scripts/deploy.sh dev
