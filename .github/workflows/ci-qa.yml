@@ -7,6 +7,7 @@ on:
 
 env:
   TARGET_ACCOUNT_ID: ${{ secrets.QA_ACCOUNT_ID }}
+  COLUMNS: 160
 
 permissions:
   id-token: write

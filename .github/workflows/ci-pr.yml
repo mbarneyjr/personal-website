@@ -18,6 +18,7 @@ concurrency:
 
 env:
   TARGET_ACCOUNT_ID: ${{ secrets.DEV_ACCOUNT_ID }}
+  COLUMNS: 160
 
 permissions:
   id-token: write
