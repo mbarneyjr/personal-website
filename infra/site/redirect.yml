@@ -1,0 +1,61 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Redirect an alternate domain to the primary site domain
+
+
+Parameters:
+  ApplicationName:
+    Type: String
+  EnvironmentName:
+    Type: String
+  RedirectDomain:
+    Type: String
+    Description: <domain>:<hosted zone id>
+  FunctionArn:
+    Type: String
+
+
+Resources:
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !Select [0, !Split [':', !Ref RedirectDomain]]
+      ValidationMethod: DNS
+      DomainValidationOptions:
+        - DomainName: !Select [0, !Split [':', !Ref RedirectDomain]]
+          HostedZoneId: !Select [1, !Split [':', !Ref RedirectDomain]]
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: !Sub
+          - ${ApplicationName}-${EnvironmentName}-redirect-${Domain}
+          - Domain: !Select [0, !Split [':', !Ref RedirectDomain]]
+        HttpVersion: http2
+        Aliases:
+          - !Select [0, !Split [':', !Ref RedirectDomain]]
+        ViewerCertificate:
+          AcmCertificateArn: !Ref Certificate
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2019
+        Origins:
+          - Id: unused
+            DomainName: unused.invalid
+            CustomOriginConfig:
+              OriginProtocolPolicy: https-only
+        DefaultCacheBehavior:
+          TargetOriginId: unused
+          ViewerProtocolPolicy: allow-all
+          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad # caching disabled
+          FunctionAssociations:
+            - FunctionARN: !Ref FunctionArn
+              EventType: viewer-request
+  DnsRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt Distribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+      Name: !Select [0, !Split [':', !Ref RedirectDomain]]
+      HostedZoneId: !Select [1, !Split [':', !Ref RedirectDomain]]

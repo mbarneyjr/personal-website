@@ -1,0 +1,202 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::LanguageExtensions
+Description: Frontend infrastructure for static site hosting
+
+
+Parameters:
+  ApplicationName:
+    Type: String
+    Description: The name of the application
+  EnvironmentName:
+    Type: String
+    Description: The name of the environment
+  HostedZoneId:
+    Type: String
+  DomainName:
+    Type: String
+  RedirectDomains:
+    Type: CommaDelimitedList
+    Default: ''
+    Description: Comma-delimited list of <domain>:<hosted zone id> pairs that redirect to DomainName
+
+
+Conditions:
+  HasRedirects: !Not [!Equals [!Join ['', !Ref RedirectDomains], '']]
+
+
+Resources:
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub ${ApplicationName}-${EnvironmentName}
+      VersioningConfiguration:
+        Status: Enabled
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument:
+        Id: SiteBucket
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: 's3:GetObject'
+            Resource: !Sub ${SiteBucket.Arn}/*
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${SiteDistribution}
+
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !Sub ${DomainName}
+      SubjectAlternativeNames:
+        - !Sub '*.${DomainName}'
+      ValidationMethod: DNS
+      DomainValidationOptions:
+        - DomainName: !Ref DomainName
+          HostedZoneId: !Ref HostedZoneId
+
+  SiteDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: !Sub ${ApplicationName}-${EnvironmentName}-${DomainName}
+        HttpVersion: http2
+        Aliases:
+          - !Ref DomainName
+        ViewerCertificate:
+          AcmCertificateArn: !Ref Certificate
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2019
+        DefaultRootObject: index.html
+        Origins:
+          - Id: primary
+            DomainName: !Sub ${SiteBucket.RegionalDomainName}
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+            OriginAccessControlId: !Ref OriginAccessControl
+        DefaultCacheBehavior:
+          TargetOriginId: primary
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad # caching disabled
+          FunctionAssociations:
+            - FunctionARN: !GetAtt SitePathRedirect.FunctionARN
+              EventType: viewer-request
+  OriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub ${ApplicationName}-${EnvironmentName}-oac
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+  SitePathRedirect:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: !Sub ${ApplicationName}-${EnvironmentName}-redirect
+      AutoPublish: true
+      FunctionConfig:
+        Runtime: cloudfront-js-2.0
+        Comment: cloudfront redirect function
+      FunctionCode: |
+        async function handler(event) {
+          console.log(`Event: ${JSON.stringify(event)}`);
+          var request = event.request;
+          var uri = event.request.uri;
+          if (uri.endsWith('/')) {
+            // check whether the URI is missing a file name
+            request.uri += 'index.html';
+          } else if (!uri.includes('.')) {
+            // check whether the URI is missing a file extension
+            request.uri += '/index.html';
+          }
+          console.log(`Result: ${JSON.stringify(request)}`);
+          return request;
+        }
+
+  SiteLogGroup:
+    Type: AWS::Logs::LogGroup
+    UpdateReplacePolicy: Delete
+    DeletionPolicy: Delete
+    Properties:
+      LogGroupName: !Sub ${ApplicationName}-${EnvironmentName}-cloudfront-logs
+  SiteLogDeliverySource:
+    Type: AWS::Logs::DeliverySource
+    Properties:
+      Name: !Sub ${ApplicationName}-${EnvironmentName}-cloudfront
+      LogType: ACCESS_LOGS
+      ResourceArn: !Sub arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${SiteDistribution}
+  SiteLogDeliveryDestination:
+    Type: AWS::Logs::DeliveryDestination
+    Properties:
+      Name: !Sub ${ApplicationName}-${EnvironmentName}-cloudfront-logs
+      OutputFormat: json
+      DestinationResourceArn: !Sub arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:${SiteLogGroup}
+  SiteLogDelivery:
+    Type: AWS::Logs::Delivery
+    Properties:
+      DeliverySourceName: !Ref SiteLogDeliverySource
+      DeliveryDestinationArn: !GetAtt SiteLogDeliveryDestination.Arn
+
+  SiteDnsRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      Type: A
+      AliasTarget:
+        DNSName: !Sub ${SiteDistribution.DomainName}
+        HostedZoneId: Z2FDTNDATAQYW2
+      Name: !Ref DomainName
+      HostedZoneId: !Ref HostedZoneId
+
+  RedirectFunction:
+    Type: AWS::CloudFront::Function
+    Condition: HasRedirects
+    Properties:
+      Name: !Sub ${ApplicationName}-${EnvironmentName}-domain-redirect
+      AutoPublish: true
+      FunctionConfig:
+        Runtime: cloudfront-js-2.0
+        Comment: redirect alternate domains to the primary domain
+      FunctionCode: !Sub |
+        function handler(event) {
+          var request = event.request;
+          var qs = request.querystring;
+          var query = Object.keys(qs).reduce(function (acc, key) {
+            return acc.concat((qs[key].multiValue || [qs[key]]).map(function (v) { return key + '=' + v.value; }));
+          }, []).join('&');
+          return {
+            statusCode: 301,
+            statusDescription: 'Moved Permanently',
+            headers: { location: { value: 'https://${DomainName}' + request.uri + (query ? '?' + query : '') } },
+          };
+        }
+  Fn::ForEach::Redirects:
+    - Pair
+    - !Ref RedirectDomains
+    - Redirect&{Pair}:
+        Type: AWS::CloudFormation::Stack
+        Condition: HasRedirects
+        DeletionPolicy: Delete
+        UpdateReplacePolicy: Delete
+        Properties:
+          TemplateURL: ./redirect.yml
+          Parameters:
+            ApplicationName: !Ref ApplicationName
+            EnvironmentName: !Ref EnvironmentName
+            RedirectDomain: !Ref Pair
+            FunctionArn: !GetAtt RedirectFunction.FunctionARN
+
+
+Outputs:
+  SiteBucketName:
+    Description: Name of the S3 bucket that contains the site assets
+    Value: !Ref SiteBucket
+  SiteUrl:
+    Description: URL of the static site
+    Value: !Sub https://${DomainName}/

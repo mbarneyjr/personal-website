@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="/styles/globals.css">
   <link rel="stylesheet" href="/styles/blog.css">
 
-  <script src="/index.js" type="text/javascript" defer></script>
   <script src="/public/components/nav-bar/index.mjs" defer></script>
 </head>
 
@@ -61,7 +60,7 @@
     </figure>
     <p>Each input to the perceptron has a weight. Those weights get multiplied by their inputs, and the perceptron sums the results. The perceptron then passes that sum into an activation function, which is usually a sigmoid function, to compute the perceptrons output. Using a perceptron, you can train/learn the weights of the inputs to solve any <em>linearly separable</em> problem.</p>
 
-    <h3>Linearly Separable?</h2>
+    <h3>Linearly Separable?</h3>
     <p>By linearly separable, I mean that the problem space can be divided up by a line. Let's say we're solving the AND problem:</p>
     <ul>
       <li><code>0 AND 0</code>, <code>0 AND 1</code>, and <code>1 AND 0</code> are false (or 0)</li>
@@ -128,7 +127,7 @@
     </figure>
     <p>makes it clear that this problem is not linearly separable. To solve this problem, we're going to need to chain perceptrons together.</p>
 
-    <h3>MultiLayer Perceptrons</h2>
+    <h3>MultiLayer Perceptrons</h3>
     <p>When you connect multiple perceptrons together, you get a multilayer-perceptron (MLP), which is a type of neural network. These nodes (perceptrons) are connected together in layers, where each node in one layer connects to each node in the next layer, like shown below.</p>
     <figure>
       <img src="/blog/write-your-own-neural-networks/images/mlp.png" alt="a multi layer perceptron" id="neural-network">

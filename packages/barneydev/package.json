@@ -6,5 +6,11 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "dependencies": {}
+  "scripts": {
+    "dev": "live-server ./site",
+    "lint": "biome check"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
 }

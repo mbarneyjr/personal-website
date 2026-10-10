@@ -1,11 +1,11 @@
-rum.json
 /artifacts
 node_modules
 *.local
 *.local.*
 .venv
+.direnv
 dependencies
-
-# sst
-.sst
-resource.enc
+.env.*
+!.env.dev
+!.env.qa
+!.env.prod

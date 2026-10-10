@@ -60,7 +60,7 @@ navBar.innerHTML = /* html */ `
 `;
 
 class NavBar extends HTMLElement {
-  constructor () {
+  constructor() {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(navBar.content.cloneNode(true));
@@ -68,9 +68,9 @@ class NavBar extends HTMLElement {
     this.shadowRoot.querySelector('.navbar-toggle').addEventListener('click', () => this.navBarToggle());
   }
 
-  connectedCallback () {
+  connectedCallback() {
     const breakpoint = this.getAttribute('breakpoint');
-    this.shadowRoot.querySelector('style').append(/* css */`
+    this.shadowRoot.querySelector('style').append(/* css */ `
       @media only screen and (max-width: ${breakpoint || DEFAULT_BREAKPOINT}) {
         .targets {
           /* hide the targets by default */
@@ -93,7 +93,7 @@ class NavBar extends HTMLElement {
     `);
   }
 
-  navBarToggle () {
+  navBarToggle() {
     this.shadowRoot.querySelector('.targets').classList.toggle('show-targets');
     this.shadowRoot.querySelector('.navbar-toggle').classList.toggle('navbar-cross-toggle');
   }
