@@ -62,7 +62,7 @@ PACKAGED_TEMPLATE_FILE="${PWD}/../../artifacts/${ENVIRONMENT_NAME}-${INFRA_COMPO
 aws cloudformation package \
   --template-file "${TEMPLATE_FILE}" \
   --s3-bucket "${ARTIFACT_BUCKET}" \
-  --s3-prefix "${STACK_NAME}" \
+  --s3-prefix "mutable/${STACK_NAME}" \
   --output-template-file "${PACKAGED_TEMPLATE_FILE}" >/dev/null
 STACK_STATUS=$(aws cloudformation describe-stacks \
   --stack-name "${STACK_NAME}" \
