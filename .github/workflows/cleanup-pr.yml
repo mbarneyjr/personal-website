@@ -4,6 +4,7 @@ on:
   pull_request:
     types:
       - closed
+      - unlabeled
     branches:
       - main
       - feature/*
@@ -19,6 +20,7 @@ permissions:
   id-token: write
   contents: write
   packages: read
+  pull-requests: write
 
 defaults:
   run:
@@ -26,6 +28,9 @@ defaults:
 
 jobs:
   cleanup_pr:
+    if: >-
+      (github.event.action == 'closed' && contains(github.event.pull_request.labels.*.name, 'ci:deploy-preview')) ||
+      (github.event.action == 'unlabeled' && github.event.label.name == 'ci:deploy-preview' && github.event.pull_request.state == 'open')
     runs-on: ubuntu-24.04-arm
     env:
       ENVIRONMENT_NAME: ${{ github.event.pull_request.number }}
@@ -50,3 +55,8 @@ jobs:
       - name: Teardown
         run: |
           ./scripts/teardown.sh "${ENVIRONMENT_NAME}"
+      - name: Comment teardown
+        uses: ./.github/actions/pr-comment
+        with:
+          marker: ci:deploy-preview
+          body: Preview environment torn down.
