@@ -2,13 +2,12 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "barneydev",
   "version": "0.0.0",
-  "main": "index.js",
-  "author": "",
-  "license": "ISC",
   "description": "",
   "type": "module",
   "scripts": {
-    "lint": "npm run --workspaces lint && cfn-lint"
+    "lint": "npm run --workspaces lint && cfn-lint",
+    "lint:fix": "biome check --fix",
+    "ci": "npm run lint && npm run --workspaces typecheck && npm run --workspaces test"
   },
   "workspaces": [
     "packages/*"

@@ -2,14 +2,10 @@
 
 set -euo pipefail
 
-usage() {
-  echo "usage: load-config.sh <environment-name>"
-  exit 1
-}
-
 ENVIRONMENT_NAME=${1:-}
 if [[ -z "${ENVIRONMENT_NAME}" ]]; then
-  usage
+  echo "usage: load-config.sh <environment-name>"
+  exit 1
 fi
 
 # load environment

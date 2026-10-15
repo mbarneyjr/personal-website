@@ -1,6 +1,8 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Transform: AWS::LanguageExtensions
-Description: Frontend infrastructure for static site hosting
+Transform:
+  - AWS::LanguageExtensions
+  - AWS::Serverless-2016-10-31
+Description: Frontend infrastructure for site hosting
 
 
 Parameters:
@@ -18,6 +20,15 @@ Parameters:
     Type: CommaDelimitedList
     Default: ''
     Description: Comma-delimited list of <domain>:<hosted zone id> pairs that redirect to DomainName
+  CodeBucket:
+    Type: String
+    Description: Versioned S3 bucket that contains the site deployment package
+  CodeKey:
+    Type: String
+    Description: S3 key of the site deployment package
+  CodeVersion:
+    Type: String
+    Description: S3 object version of the site deployment package
 
 
 Conditions:
@@ -25,30 +36,25 @@ Conditions:
 
 
 Resources:
-  SiteBucket:
-    Type: AWS::S3::Bucket
+  SiteFunction:
+    Type: AWS::Serverless::WebFunction
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - E3006
     Properties:
-      BucketName: !Sub ${ApplicationName}-${EnvironmentName}
-      VersioningConfiguration:
-        Status: Enabled
-      OwnershipControls:
-        Rules:
-          - ObjectOwnership: BucketOwnerEnforced
-  SiteBucketPolicy:
-    Type: AWS::S3::BucketPolicy
-    Properties:
-      Bucket: !Ref SiteBucket
-      PolicyDocument:
-        Id: SiteBucket
-        Statement:
-          - Effect: Allow
-            Principal:
-              Service: cloudfront.amazonaws.com
-            Action: 's3:GetObject'
-            Resource: !Sub ${SiteBucket.Arn}/*
-            Condition:
-              StringEquals:
-                AWS:SourceArn: !Sub arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${SiteDistribution}
+      FunctionName: !Sub ${ApplicationName}-${EnvironmentName}-site
+      Runtime: nodejs24.x
+      AuthType: ApplicationManaged
+      EntryPoint: packages/site/server.ts
+      CodeUri:
+        Bucket: !Ref CodeBucket
+        Key: !Ref CodeKey
+        Version: !Ref CodeVersion
+      EnvironmentVariables:
+        NODE_ENV: production
+        NODE_OPTIONS: --import remix/node-tsx
 
   Certificate:
     Type: AWS::CertificateManager::Certificate
@@ -74,51 +80,16 @@ Resources:
           AcmCertificateArn: !Ref Certificate
           SslSupportMethod: sni-only
           MinimumProtocolVersion: TLSv1.2_2019
-        DefaultRootObject: index.html
         Origins:
           - Id: primary
-            DomainName: !Sub ${SiteBucket.RegionalDomainName}
-            S3OriginConfig:
-              OriginAccessIdentity: ''
-            OriginAccessControlId: !Ref OriginAccessControl
+            DomainName: !GetAtt SiteFunctionEndpoint.DomainName
+            CustomOriginConfig:
+              OriginProtocolPolicy: https-only
         DefaultCacheBehavior:
           TargetOriginId: primary
           ViewerProtocolPolicy: redirect-to-https
           CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad # caching disabled
-          FunctionAssociations:
-            - FunctionARN: !GetAtt SitePathRedirect.FunctionARN
-              EventType: viewer-request
-  OriginAccessControl:
-    Type: AWS::CloudFront::OriginAccessControl
-    Properties:
-      OriginAccessControlConfig:
-        Name: !Sub ${ApplicationName}-${EnvironmentName}-oac
-        OriginAccessControlOriginType: s3
-        SigningBehavior: always
-        SigningProtocol: sigv4
-  SitePathRedirect:
-    Type: AWS::CloudFront::Function
-    Properties:
-      Name: !Sub ${ApplicationName}-${EnvironmentName}-redirect
-      AutoPublish: true
-      FunctionConfig:
-        Runtime: cloudfront-js-2.0
-        Comment: cloudfront redirect function
-      FunctionCode: |
-        async function handler(event) {
-          console.log(`Event: ${JSON.stringify(event)}`);
-          var request = event.request;
-          var uri = event.request.uri;
-          if (uri.endsWith('/')) {
-            // check whether the URI is missing a file name
-            request.uri += 'index.html';
-          } else if (!uri.includes('.')) {
-            // check whether the URI is missing a file extension
-            request.uri += '/index.html';
-          }
-          console.log(`Result: ${JSON.stringify(request)}`);
-          return request;
-        }
+          OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac # all viewer except host header
 
   SiteLogGroup:
     Type: AWS::Logs::LogGroup
@@ -194,9 +165,6 @@ Resources:
 
 
 Outputs:
-  SiteBucketName:
-    Description: Name of the S3 bucket that contains the site assets
-    Value: !Ref SiteBucket
   SiteUrl:
-    Description: URL of the static site
+    Description: URL of the site
     Value: !Sub https://${DomainName}/

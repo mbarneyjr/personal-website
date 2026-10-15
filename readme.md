@@ -19,7 +19,7 @@ nix develop
 nix run .#dev
 ```
 
-The site will be available at `http://localhost:8080`.
+The site will be available at `http://localhost:44100`.
 
 ## Deployment
 
@@ -32,5 +32,4 @@ Deploy to an environment (dev, qa, or prod):
 This will:
 
 1. Create a CloudFormation changeset
-2. Execute the changeset
-3. Sync the site files to S3
+1. Execute the changeset

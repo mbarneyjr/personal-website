@@ -1,37 +1,3 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Write Your Own Neural Networks</title>
-  <meta name="description" content="Learn how to write your own Neural Networks!" />
-
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="/styles/globals.css">
-  <link rel="stylesheet" href="/styles/blog.css">
-
-  <script src="/public/components/nav-bar/index.mjs" defer></script>
-</head>
-
-<body>
-  <header>
-    <nav-bar breakpoint="720px">
-      <a class="nav-title" href="/" slot="title">Michael Barney</a>
-      <a class="link" aria-label="github" href="https://github.com/mbarneyjr" style="color: #fff">github<i class="fa fa-large fa-github"></i></a>
-      <a class="link" aria-label="reddit" href="https://reddit.com/user/mbarneyme" style="color: #FF4500">reddit<i class="fa fa-large fa-reddit"></i></a>
-      <a class="link" aria-label="instagram" href="https://instagram.com/mbarneyme" style="color: #C13584">instagram<i class="fa fa-large fa-instagram"></i></a>
-      <a class="link" aria-label="twitter" href="https://twitter.com/mbarneyjr" style="color: #1DA1F2">twitter<i class="fa fa-large fa-twitter"></i></a>
-      <a class="link" aria-label="resume" href="/resume" style="color: var(--light-color);">resume<i class="fa fa-large fa-file-text"></i></a>
-      <a class="link active" aria-label="blog" href="/blog" style="color: var(--light-color);">blog<i class="fa fa-large fa-rss-square"></i></a>
-    </nav-bar>
-  </header>
-
-  <!-- Blog Post -->
-  <div class="main-content content-card">
     <h1>Write your own neural network!</h1>
     <ul class="blog-stats">
       <ul>14 min read</ul>
@@ -137,7 +103,7 @@
     <p>Training multilayer perceptrons can be pretty tricky. The values of each of those weights and biases determine what the model does. You could have the same model but with different weights and biases, and the model could perform two different things. When training, you want to find the right values for each of those weights and biases that make the model correctly solve the problem at hand. Adjusting those weights and biases requires high-dimensional calculus (to figure out how to adjust those weights and biases to minimize error) and a lot of computational resources.</p>
 
     <h2>What I did</h2>
-    <p>Now that we understand what a neural network is, lets go over what I made. You can find all of the code <a class="content-link" target="_blank" href="https://github.com/mbarneyjr/multilayerperceptron-js">here</a>. So I made a mini "library," and to show you how it's used, we'll solve the XOR problem with it!</p>
+    <p>Now that we understand what a neural network is, lets go over what I made. <a class="content-link" target="_blank" href="https://github.com/mbarneyjr/multilayerperceptron-js">You can find all of the code on GitHub</a>. So I made a mini "library," and to show you how it's used, we'll solve the XOR problem with it!</p>
     <p>First lets gather the data into a javascript object. We need to make sure the labels line up with the data.</p>
     <blockquote>Note that it's very unlikely, for most problems, that you'll have the entire problem domain in your dataset like we do here. Often times you'll split your gathered data into two datasets: one for training and one for evaluating your model's performance on data it hasn't been trained on.</blockquote>
 
@@ -372,6 +338,3 @@ train(options) {
     <p>This project was inspried greatly from <a class="content-link" target="_blank" href="https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw">The Coding Train</a>. A lot of the code itself is based on his implementation; this implementation mainly extends the functionality of his library.</p>
     <p>A lot of my time spent researching ultimately led to me watching the <a class="content-link" target="_blank" href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw">3Blue1Brown</a> videos, I 110% recommend that anyone who is the slightest bit curious watch those videos.</p>
     <p>Thank you for reading! If you have any questions or comments, let me know! I'm always open to feedback!</p>
-  </div>
-</body>
-</html>

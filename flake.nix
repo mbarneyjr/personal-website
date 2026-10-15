@@ -16,31 +16,14 @@
         "x86_64-darwin"
       ];
       imports = [
-        inputs.process-compose-flake.flakeModule
+        ./nix/overlays.nix
+        ./nix/process-compose.nix
+        ./nix/lambda.nix
       ];
 
       perSystem =
+        { pkgs, ... }:
         {
-          system,
-          self',
-          pkgs,
-          ...
-        }:
-        {
-
-          _module.args.pkgs = import inputs.nixpkgs {
-            inherit system;
-            overlays = (import ./nix/overlays);
-          };
-          process-compose.dev = {
-            _module.args = {
-              flake-pkgs = self'.packages;
-            };
-            imports = [
-              inputs.services-flake.processComposeModules.default
-              ./nix/services.nix
-            ];
-          };
           devShells.default = pkgs.mkShell {
             packages = [
               pkgs.nodejs_24
