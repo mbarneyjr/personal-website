@@ -19,7 +19,7 @@ ZIP_PATH="artifacts/lambda.zip"
 PARAMS_PATH="artifacts/lambda.env"
 
 if [[ ! -f "${ZIP_PATH}" ]]; then
-  echo "${ZIP_PATH} does not exist, run build.sh first"
+  echo "[package] ${ZIP_PATH} does not exist, run build.sh first"
   exit 1
 fi
 
@@ -31,10 +31,10 @@ CODE_VERSION=$(aws s3api head-object \
   --query VersionId \
   --output text 2>/dev/null || true)
 if [[ "${CODE_VERSION}" == "None" ]]; then
-  echo "s3://${ARTIFACT_BUCKET} does not have versioning enabled"
+  echo "[package] s3://${ARTIFACT_BUCKET} does not have versioning enabled"
   exit 1
 elif [[ -z "${CODE_VERSION}" ]]; then
-  echo "uploading lambda zip to s3://${ARTIFACT_BUCKET}/${CODE_KEY}..."
+  echo "[package] uploading lambda zip to s3://${ARTIFACT_BUCKET}/${CODE_KEY}..."
   CODE_VERSION=$(aws s3api put-object \
     --bucket "${ARTIFACT_BUCKET}" \
     --key "${CODE_KEY}" \
@@ -43,7 +43,7 @@ elif [[ -z "${CODE_VERSION}" ]]; then
     --query VersionId \
     --output text)
 else
-  echo "lambda zip already exists at s3://${ARTIFACT_BUCKET}/${CODE_KEY}"
+  echo "[package] lambda zip already exists at s3://${ARTIFACT_BUCKET}/${CODE_KEY}"
 fi
 
 cat >"${PARAMS_PATH}" <<EOF

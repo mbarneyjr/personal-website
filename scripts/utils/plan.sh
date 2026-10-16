@@ -35,7 +35,7 @@ mkdir -p artifacts/changesets
 rm -rf "${CHANGE_SET_PATH}"
 
 if [[ ! -d "infra/${INFRA_COMPONENT}" ]]; then
-  echo "infra/${INFRA_COMPONENT} does not exist"
+  echo "[${STACK_NAME}] infra/${INFRA_COMPONENT} does not exist"
   exit 1
 fi
 

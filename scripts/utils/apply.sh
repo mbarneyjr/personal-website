@@ -31,15 +31,15 @@ if [[ -f "${CHANGE_SET_PATH}" && $(jq .Status -r "${CHANGE_SET_PATH}") != "FAILE
 
   CHANGE_SET_ID=$(jq .ChangeSetId -r "${CHANGE_SET_PATH}")
 
-  echo "executing changeset [${CHANGE_SET_ID}]..."
+  echo "[${STACK_NAME}] executing changeset [${CHANGE_SET_ID}]..."
   aws cloudformation execute-change-set \
     --change-set-name "${CHANGE_SET_ID}"
 
   npx cfn-event-tailer "${STACK_NAME}"
 fi
 
-STACK_OUTPUTS=$(aws cloudformation describe-stacks \
+echo "[${STACK_NAME}] stack outputs:"
+aws cloudformation describe-stacks \
   --stack-name "${STACK_NAME}" \
-  --query "Stacks[0].Outputs[].[join('', [OutputKey, '=', OutputValue])]" \
-  --output text)
-echo "${STACK_OUTPUTS}"
+  --query "sort_by(Stacks[0].Outputs, &OutputKey)[].[OutputKey, OutputValue]" \
+  --output text | column -t -s $'\t' | sed 's/^/  /'

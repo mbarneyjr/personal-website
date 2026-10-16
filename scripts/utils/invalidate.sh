@@ -22,7 +22,7 @@ DISTRIBUTION_ID=$(aws cloudformation describe-stacks \
   --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" \
   --output text)
 
-echo "invalidating cloudfront distribution [${DISTRIBUTION_ID}]..."
+echo "[${STACK_NAME}] invalidating cloudfront distribution [${DISTRIBUTION_ID}]..."
 INVALIDATION_ID=$(aws cloudfront create-invalidation \
   --distribution-id "${DISTRIBUTION_ID}" \
   --paths '/*' \
@@ -32,4 +32,4 @@ INVALIDATION_ID=$(aws cloudfront create-invalidation \
 aws cloudfront wait invalidation-completed \
   --distribution-id "${DISTRIBUTION_ID}" \
   --id "${INVALIDATION_ID}"
-echo "invalidation [${INVALIDATION_ID}] completed"
+echo "[${STACK_NAME}] invalidation [${INVALIDATION_ID}] completed"
