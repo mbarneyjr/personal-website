@@ -19,6 +19,9 @@ defaults:
 jobs:
   deploy:
     runs-on: ubuntu-24.04-arm
+    concurrency:
+      group: deploy-prod
+      cancel-in-progress: false
     environment:
       name: prod
       url: https://barney.dev

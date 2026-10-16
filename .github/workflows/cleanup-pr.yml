@@ -9,10 +9,6 @@ on:
       - main
       - feature/*
 
-concurrency:
-  group: pr-${{ github.event.pull_request.number }}
-  cancel-in-progress: false
-
 env:
   TARGET_ACCOUNT_ID: ${{ secrets.DEV_ACCOUNT_ID }}
   COLUMNS: 160
@@ -33,6 +29,9 @@ jobs:
       (github.event.action == 'closed' && contains(github.event.pull_request.labels.*.name, 'ci:deploy-preview')) ||
       (github.event.action == 'unlabeled' && github.event.label.name == 'ci:deploy-preview' && github.event.pull_request.state == 'open')
     runs-on: ubuntu-24.04-arm
+    concurrency:
+      group: pr-${{ github.event.pull_request.number }}
+      cancel-in-progress: false
     env:
       ENVIRONMENT_NAME: ${{ github.event.pull_request.number }}
     steps:

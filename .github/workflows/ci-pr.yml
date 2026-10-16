@@ -12,10 +12,6 @@ on:
       - main
       - feature/*
 
-concurrency:
-  group: pr-${{ github.event.pull_request.number }}
-  cancel-in-progress: false
-
 env:
   TARGET_ACCOUNT_ID: ${{ secrets.DEV_ACCOUNT_ID }}
   COLUMNS: 160
@@ -96,6 +92,9 @@ jobs:
     needs: [check]
     if: contains(github.event.pull_request.labels.*.name, 'ci:deploy-preview')
     runs-on: ubuntu-24.04-arm
+    concurrency:
+      group: pr-${{ github.event.pull_request.number }}
+      cancel-in-progress: false
     env:
       ENVIRONMENT_NAME: ${{ github.event.pull_request.number }}
     steps:

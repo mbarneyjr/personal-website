@@ -21,6 +21,9 @@ defaults:
 jobs:
   deploy:
     runs-on: ubuntu-24.04-arm
+    concurrency:
+      group: deploy-qa
+      cancel-in-progress: false
     environment:
       name: qa
       url: https://qa.barney.dev
