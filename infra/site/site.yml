@@ -46,7 +46,7 @@ Resources:
     Properties:
       FunctionName: !Sub ${ApplicationName}-${EnvironmentName}-site
       Runtime: nodejs24.x
-      AuthType: ApplicationManaged
+      AuthType: IamAuth
       EntryPoint: packages/site/server.ts
       CodeUri:
         Bucket: !Ref CodeBucket
@@ -55,6 +55,32 @@ Resources:
       EnvironmentVariables:
         NODE_ENV: production
         NODE_OPTIONS: --import remix/node-tsx
+
+  SiteFunctionPolicy:
+    Type: AWS::Lambda::ResourcePolicy
+    Properties:
+      ResourceArn: !GetAtt SiteFunctionEndpoint.FunctionArn
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: AllowCloudFrontOACAccess
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: lambda:InvokeWebFunctionEndpoint
+            Resource: !GetAtt SiteFunctionEndpoint.EndpointArn
+            Condition:
+              StringEquals:
+                aws:SourceArn: !Sub arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${SiteDistribution}
+
+  SiteOriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub ${ApplicationName}-${EnvironmentName}-site
+        OriginAccessControlOriginType: lambda
+        SigningBehavior: always-amz-auth
+        SigningProtocol: sigv4
 
   Certificate:
     Type: AWS::CertificateManager::Certificate
@@ -83,13 +109,33 @@ Resources:
         Origins:
           - Id: primary
             DomainName: !GetAtt SiteFunctionEndpoint.DomainName
+            OriginAccessControlId: !GetAtt SiteOriginAccessControl.Id
             CustomOriginConfig:
               OriginProtocolPolicy: https-only
         DefaultCacheBehavior:
           TargetOriginId: primary
           ViewerProtocolPolicy: redirect-to-https
-          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad # caching disabled
+          Compress: true
+          CachePolicyId: !Ref SiteCachePolicy
           OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac # all viewer except host header
+
+  SiteCachePolicy:
+    Type: AWS::CloudFront::CachePolicy
+    Properties:
+      CachePolicyConfig:
+        Name: !Sub ${ApplicationName}-${EnvironmentName}-site
+        MinTTL: 0
+        DefaultTTL: 0
+        MaxTTL: 31536000
+        ParametersInCacheKeyAndForwardedToOrigin:
+          EnableAcceptEncodingGzip: true
+          EnableAcceptEncodingBrotli: true
+          CookiesConfig:
+            CookieBehavior: none
+          HeadersConfig:
+            HeaderBehavior: none
+          QueryStringsConfig:
+            QueryStringBehavior: all
 
   SiteLogGroup:
     Type: AWS::Logs::LogGroup
@@ -168,3 +214,6 @@ Outputs:
   SiteUrl:
     Description: URL of the site
     Value: !Sub https://${DomainName}/
+  DistributionId:
+    Description: ID of the CloudFront distribution
+    Value: !Ref SiteDistribution
