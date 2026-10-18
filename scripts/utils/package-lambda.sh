@@ -50,4 +50,5 @@ cat >"${PARAMS_PATH}" <<EOF
 CFN_PARAM_CodeBucket=${ARTIFACT_BUCKET}
 CFN_PARAM_CodeKey=${CODE_KEY}
 CFN_PARAM_CodeVersion=${CODE_VERSION}
+CFN_PARAM_BuildId=$(git rev-parse --short HEAD)
 EOF

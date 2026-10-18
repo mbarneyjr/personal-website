@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="15.33" style="--bg:light-dark(#ffffff, #000000);--fg:light-dark(#14161b, #e0e2ea);--c1:light-dark(#9b9ea4, #4f5258);--c2:light-dark(#c4c6cd, #2c2e33);--c3:light-dark(#eef1f8, #07080d);--c4:light-dark(#004c73, #a6dbff);--c5:light-dark(#005523, #b3f6c0);--c6:light-dark(#6b5300, #fce094);--c7:light-dark(#590008, #ffc0b9);--c8:light-dark(#007373, #8cf8f7);fill:var(--fg)">
+<rect width="800" height="800" style="fill:var(--bg)"/>
+<rect x="151.57" y="160.8" width="9.2" height="18.4" style="fill:var(--fg)"/>
+<rect x="160.77" y="160.8" width="82.78" height="18.4" style="fill:var(--fg)"/>
+<rect x="243.55" y="160.8" width="248.35" height="18.4" style="fill:var(--fg)"/>
+<rect x="491.9" y="160.8" width="9.2" height="18.4" style="fill:var(--c1)"/>
+<rect x="151.57" y="179.2" width="9.2" height="18.4" style="fill:var(--c2)"/>
+<rect x="160.77" y="179.2" width="82.78" height="18.4" style="fill:var(--c2)"/>
+<rect x="243.55" y="179.2" width="248.35" height="18.4" style="fill:var(--c2)"/>
+<rect x="491.9" y="179.2" width="9.2" height="18.4" style="fill:var(--c1)"/>
+<rect x="151.57" y="197.6" width="9.2" height="18.4" style="fill:var(--c2)"/>
+<rect x="160.77" y="197.6" width="82.78" height="18.4" style="fill:var(--c2)"/>
+<rect x="243.55" y="197.6" width="248.35" height="18.4" style="fill:var(--c2)"/>
+<rect x="491.9" y="197.6" width="9.2" height="18.4" style="fill:var(--c1)"/>
+<rect x="151.57" y="216" width="9.2" height="18.4" style="fill:var(--c2)"/>
+<rect x="160.77" y="216" width="82.78" height="18.4" style="fill:var(--c2)"/>
+<rect x="243.55" y="216" width="248.35" height="18.4" style="fill:var(--c2)"/>
+<rect x="491.9" y="216" width="9.2" height="18.4" style="fill:var(--c1)"/>
+<rect x="151.57" y="234.4" width="9.2" height="18.4" style="fill:var(--c2)"/>
+<rect x="160.77" y="234.4" width="82.78" height="18.4" style="fill:var(--c2)"/>
+<rect x="243.55" y="234.4" width="248.35" height="18.4" style="fill:var(--c2)"/>
+<rect x="491.9" y="234.4" width="9.2" height="18.4" style="fill:var(--c1)"/>
+<rect x="151.57" y="252.8" width="9.2" height="18.4" style="fill:var(--c2)"/>
+<rect x="160.77" y="252.8" width="82.78" height="18.4" style="fill:var(--c2)"/>
+<rect x="243.55" y="252.8" width="248.35" height="18.4" style="fill:var(--c2)"/>
+<rect x="491.9" y="252.8" width="9.2" height="18.4" style="fill:var(--c1)"/>
+<rect x="151.57" y="271.2" width="9.2" height="18.4" style="fill:var(--c2)"/>
+<rect x="160.77" y="271.2" width="82.78" height="18.4" style="fill:var(--c2)"/>
+<rect x="243.55" y="271.2" width="257.54" height="18.4" style="fill:var(--c2)"/>
+<rect x="151.57" y="289.6" width="9.2" height="18.4" style="fill:var(--c2)"/>
+<rect x="160.77" y="289.6" width="82.78" height="18.4" style="fill:var(--c2)"/>
+<rect x="243.55" y="289.6" width="257.54" height="18.4" style="fill:var(--c2)"/>
+<rect x="151.57" y="308" width="9.2" height="18.4" style="fill:var(--c2)"/>
+<rect x="160.77" y="308" width="82.78" height="18.4" style="fill:var(--c2)"/>
+<rect x="243.55" y="308" width="257.54" height="18.4" style="fill:var(--c2)"/>
+<rect x="151.57" y="326.4" width="9.2" height="18.4" style="fill:var(--c2)"/>
+<rect x="160.77" y="326.4" width="82.78" height="18.4" style="fill:var(--c2)"/>
+<rect x="243.55" y="326.4" width="257.54" height="18.4" style="fill:var(--c2)"/>
+<rect x="151.57" y="344.8" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="344.8" width="110.38" height="18.4" style="fill:var(--c3)"/>
+<rect x="271.15" y="344.8" width="395.51" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="363.2" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="363.2" width="478.3" height="18.4" style="fill:var(--c3)"/>
+<rect x="639.07" y="363.2" width="27.59" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="381.6" width="515.09" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="400" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="400" width="110.38" height="18.4" style="fill:var(--c3)"/>
+<rect x="271.15" y="400" width="18.4" height="18.4" style="fill:var(--c3)"/>
+<rect x="289.54" y="400" width="36.79" height="18.4" style="fill:var(--c3)"/>
+<rect x="326.34" y="400" width="340.33" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="418.4" width="515.09" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="436.8" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="436.8" width="128.77" height="18.4" style="fill:var(--c3)"/>
+<rect x="289.54" y="436.8" width="377.12" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="455.2" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="455.2" width="174.76" height="18.4" style="fill:var(--c3)"/>
+<rect x="335.53" y="455.2" width="331.13" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="473.6" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="473.6" width="73.58" height="18.4" style="fill:var(--c3)"/>
+<rect x="234.36" y="473.6" width="432.31" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="492" width="515.09" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="510.4" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="510.4" width="128.77" height="18.4" style="fill:var(--c3)"/>
+<rect x="289.54" y="510.4" width="377.12" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="528.8" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="528.8" width="257.54" height="18.4" style="fill:var(--c3)"/>
+<rect x="418.32" y="528.8" width="248.35" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="547.2" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="547.2" width="257.54" height="18.4" style="fill:var(--c3)"/>
+<rect x="418.32" y="547.2" width="248.35" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="565.6" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="565.6" width="183.96" height="18.4" style="fill:var(--c3)"/>
+<rect x="344.73" y="565.6" width="321.93" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="584" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="584" width="137.97" height="18.4" style="fill:var(--c3)"/>
+<rect x="298.74" y="584" width="367.92" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="602.4" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="602.4" width="119.57" height="18.4" style="fill:var(--c3)"/>
+<rect x="280.35" y="602.4" width="386.32" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="620.8" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="620.8" width="156.37" height="18.4" style="fill:var(--c3)"/>
+<rect x="317.14" y="620.8" width="349.52" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="639.2" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="639.2" width="193.16" height="18.4" style="fill:var(--c3)"/>
+<rect x="353.93" y="639.2" width="312.73" height="18.4" style="fill:var(--c3)"/>
+<rect x="151.57" y="657.6" width="9.2" height="18.4" style="fill:var(--c3)"/>
+<rect x="160.77" y="657.6" width="229.95" height="18.4" style="fill:var(--c3)"/>
+<rect x="390.72" y="657.6" width="275.94" height="18.4" style="fill:var(--c3)"/>
+<rect x="32" y="731.2" width="496.69" height="18.4" style="fill:var(--c1)"/>
+<rect x="528.69" y="731.2" width="36.79" height="18.4" style="fill:var(--c1)"/>
+<rect x="565.48" y="731.2" width="27.59" height="18.4" style="fill:var(--c1)"/>
+<rect x="593.08" y="731.2" width="174.76" height="18.4" style="fill:var(--c1)"/>
+<text x="32" y="45.8" xml:space="preserve"><tspan style="fill:var(--c1)">    1 </tspan><tspan style="fill:var(--c4)">Version</tspan>: <tspan style="fill:var(--c5)">"2012-10-17"</tspan>                                                     </text>
+<text x="32" y="64.2" xml:space="preserve"><tspan style="fill:var(--c1)">    2 </tspan><tspan style="fill:var(--c4)">Statement</tspan>:                                                                </text>
+<text x="32" y="82.6" xml:space="preserve"><tspan style="fill:var(--c1)">    3 </tspan>  - <tspan style="fill:var(--c4)">Sid</tspan>: <tspan style="fill:var(--c5)">RunTasks</tspan>                                                         </text>
+<text x="32" y="101" xml:space="preserve"><tspan style="fill:var(--c1)">    4 </tspan>    <tspan style="fill:var(--c4)">Effect</tspan>: <tspan style="fill:var(--c5)">Allow</tspan>                                                         </text>
+<text x="32" y="119.4" xml:space="preserve"><tspan style="fill:var(--c1)">    5 </tspan>    <tspan style="fill:var(--c4)">Action</tspan>:                                                               </text>
+<text x="32" y="137.8" xml:space="preserve"><tspan style="fill:var(--c6)">W </tspan><tspan style="fill:var(--c1)">  6 </tspan>      - <tspan style="fill:var(--c5)" text-decoration="underline">ecs:RunTask</tspan>     <tspan style="fill:var(--c6)">■ "RunTask" requires dependent action(s): iam:Pass</tspan></text>
+<text x="32" y="156.2" xml:space="preserve"><tspan style="fill:var(--c7)">E </tspan><tspan style="fill:var(--c1)">  7 </tspan>      - <tspan style="fill:var(--c5)" text-decoration="underline">s3:GetObj</tspan>     <tspan style="fill:var(--c7)">■ Unrecognized action "s3:GetObj"</tspan>                   </text>
+<text x="32" y="174.6" xml:space="preserve"><tspan style="fill:var(--c1)">    8 </tspan>    <tspan style="fill:var(--c4)">Res</tspan><tspan style="fill:var(--c2)"> </tspan><tspan style="fill:var(--c2)" font-weight="bold">s3:GetObj</tspan><tspan style="fill:var(--c2)">ect                        </tspan>                              </text>
+<text x="32" y="193" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan font-weight="bold">s3:GetObj</tspan>ectAcl                                                  <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="211.4" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan font-weight="bold">s3:GetObj</tspan>ectAnnotation                                           <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="229.8" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan font-weight="bold">s3:GetObj</tspan>ectAttributes                                           <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="248.2" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan font-weight="bold">s3:GetObj</tspan>ectLegalHold                                            <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="266.6" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan font-weight="bold">s3:GetObj</tspan>ectRetention                                            <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="285" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan font-weight="bold">s3:GetObj</tspan>ectTagging                                              <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="303.4" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan font-weight="bold">s3:GetObj</tspan>ectTorrent                                              <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="321.8" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan font-weight="bold">s3:GetObj</tspan>ectVersion                                              <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="340.2" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan font-weight="bold">s3:GetObj</tspan>ectVersionAcl                                           <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="358.6" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan font-weight="bold">s3:GetObject</tspan>                                                     <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="377" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan font-style="italic">Grants permission to retrieve objects from Amazon S3</tspan>             <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="395.4" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan>                                                                  <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="413.8" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan font-weight="bold">Access Level</tspan>: <tspan font-style="italic">Read</tspan>                                               <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="432.2" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan>                                                                  <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="450.6" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan font-weight="bold">Resource types</tspan>                                                   <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="469" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan style="fill:var(--c8)">- accesspointobject</tspan>                                              <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="487.4" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan style="fill:var(--c8)">- object</tspan>                                                         <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="505.8" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan>                                                                  <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="524.2" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan font-weight="bold">Condition keys</tspan>                                                   <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="542.6" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan style="fill:var(--c8)">- s3:AccessGrantsInstanceArn</tspan>                                     <tspan style="fill:var(--c1)"> </tspan></text>
+<text x="32" y="561" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan style="fill:var(--c8)">- s3:ExistingObjectTag/&lt;key&gt;</tspan>                           <tspan style="fill:var(--c1)">           </tspan></text>
+<text x="32" y="579.4" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan style="fill:var(--c8)">- s3:ResourceAccount</tspan>                                   <tspan style="fill:var(--c1)">           </tspan></text>
+<text x="32" y="597.8" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan style="fill:var(--c8)">- s3:TlsVersion</tspan>                                        <tspan style="fill:var(--c1)">           </tspan></text>
+<text x="32" y="616.2" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan style="fill:var(--c8)">- s3:authType</tspan>                                          <tspan style="fill:var(--c1)">           </tspan></text>
+<text x="32" y="634.6" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan style="fill:var(--c8)">- s3:signatureAge</tspan>                                      <tspan style="fill:var(--c1)">           </tspan></text>
+<text x="32" y="653" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan style="fill:var(--c8)">- s3:signatureversion</tspan>                                  <tspan style="fill:var(--c1)">           </tspan></text>
+<text x="32" y="671.4" xml:space="preserve"><tspan style="fill:var(--c1)">~            </tspan> <tspan style="fill:var(--c8)">- s3:x-amz-content-sha256</tspan>                              <tspan style="fill:var(--c1)">           </tspan></text>
+<text x="32" y="689.8" xml:space="preserve"><tspan style="fill:var(--c1)">~                                                                               </tspan></text>
+<text x="32" y="708.2" xml:space="preserve"><tspan style="fill:var(--c1)">~                                                                               </tspan></text>
+<text x="32" y="726.6" xml:space="preserve"><tspan style="fill:var(--c1)">~                                                                               </tspan></text>
+<text x="32" y="745" xml:space="preserve">policy.yaml [+]                                       <tspan style="fill:var(--c7)">E:1 </tspan><tspan style="fill:var(--c6)">W:1</tspan> 7,18           All</text>
+<text x="32" y="763.4" xml:space="preserve"><tspan style="fill:var(--c5)">-- INSERT --</tspan>                                                                    </text>
+</svg>

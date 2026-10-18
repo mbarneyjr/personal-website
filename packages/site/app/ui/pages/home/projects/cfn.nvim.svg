@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="19.17" style="--bg:light-dark(#ffffff, #000000);--fg:light-dark(#14161b, #e0e2ea);--c1:light-dark(#9b9ea4, #4f5258);--c2:light-dark(#007373, #8cf8f7);--c3:light-dark(#004c73, #a6dbff);--c4:light-dark(#005523, #b3f6c0);--c5:light-dark(#6b5300, #fce094);fill:var(--fg)">
+<rect width="800" height="800" style="fill:var(--bg)"/>
+<rect x="32" y="745.7" width="483.08" height="22.3" style="fill:var(--c1)"/>
+<rect x="515.08" y="745.7" width="34.51" height="22.3" style="fill:var(--c1)"/>
+<rect x="549.59" y="745.7" width="218.54" height="22.3" style="fill:var(--c1)"/>
+<text x="32" y="48.73" xml:space="preserve"><tspan style="fill:var(--c2)">I </tspan><tspan style="fill:var(--c1)">  1 </tspan><tspan style="fill:var(--c3)" text-decoration="underline">AWSTemplateFormatVersion</tspan>: <tspan style="fill:var(--c4)">'2010-09-09'</tspan>                    </text>
+<text x="32" y="71.03" xml:space="preserve"><tspan style="fill:var(--c1)">    2 </tspan>                                                          </text>
+<text x="32" y="93.33" xml:space="preserve"><tspan style="fill:var(--c1)">    3 </tspan><tspan style="fill:var(--c3)">Parameters</tspan>:                                               </text>
+<text x="32" y="115.64" xml:space="preserve"><tspan style="fill:var(--c1)">    4 </tspan>  <tspan style="fill:var(--c3)">Versioning</tspan>:                                             </text>
+<text x="32" y="137.94" xml:space="preserve"><tspan style="fill:var(--c1)">    5 </tspan>    <tspan style="fill:var(--c3)">Type</tspan>: <tspan style="fill:var(--c4)">String</tspan>                                          </text>
+<text x="32" y="160.24" xml:space="preserve"><tspan style="fill:var(--c1)">    6 </tspan>    <tspan style="fill:var(--c3)">AllowedValues</tspan>: [<tspan style="fill:var(--c4)">Enabled</tspan>, <tspan style="fill:var(--c4)">Suspended</tspan>]                   </text>
+<text x="32" y="182.55" xml:space="preserve"><tspan style="fill:var(--c1)">    7 </tspan>    <tspan style="fill:var(--c3)">Default</tspan>: <tspan style="fill:var(--c4)">Enabled</tspan>                                      </text>
+<text x="32" y="204.85" xml:space="preserve"><tspan style="fill:var(--c1)">    8 </tspan>  <tspan style="fill:var(--c3)">RetentionDays</tspan>:                                          </text>
+<text x="32" y="227.15" xml:space="preserve"><tspan style="fill:var(--c1)">    9 </tspan>    <tspan style="fill:var(--c3)">Type</tspan>: <tspan style="fill:var(--c4)">Number</tspan>                                          </text>
+<text x="32" y="249.45" xml:space="preserve"><tspan style="fill:var(--c1)">   10 </tspan>    <tspan style="fill:var(--c3)">MinValue</tspan>: 1                                           </text>
+<text x="32" y="271.76" xml:space="preserve"><tspan style="fill:var(--c1)">   11 </tspan>    <tspan style="fill:var(--c3)">MaxValue</tspan>: 3650                                        </text>
+<text x="32" y="294.06" xml:space="preserve"><tspan style="fill:var(--c1)">   12 </tspan>    <tspan style="fill:var(--c3)">Default</tspan>: 30                                           </text>
+<text x="32" y="316.36" xml:space="preserve"><tspan style="fill:var(--c1)">   13 </tspan>  <tspan style="fill:var(--c3)">Environment</tspan>:                                            </text>
+<text x="32" y="338.67" xml:space="preserve"><tspan style="fill:var(--c1)">   14 </tspan>    <tspan style="fill:var(--c3)">Type</tspan>: <tspan style="fill:var(--c4)">String</tspan>                                          </text>
+<text x="32" y="360.97" xml:space="preserve"><tspan style="fill:var(--c1)">   15 </tspan>    <tspan style="fill:var(--c3)">AllowedPattern</tspan>: <tspan style="fill:var(--c4)">'^(dev|staging|prod)$'</tspan>                </text>
+<text x="32" y="383.27" xml:space="preserve"><tspan style="fill:var(--c1)">   16 </tspan>    <tspan style="fill:var(--c3)">ConstraintDescription</tspan>: <tspan style="fill:var(--c4)">must be dev, staging, or prod</tspan>  </text>
+<text x="32" y="405.58" xml:space="preserve"><tspan style="fill:var(--c1)">   17 </tspan>    <tspan style="fill:var(--c3)">Default</tspan>: <tspan style="fill:var(--c4)">prod</tspan>                                         </text>
+<text x="32" y="427.88" xml:space="preserve"><tspan style="fill:var(--c1)">   18 </tspan>                                                          </text>
+<text x="32" y="450.18" xml:space="preserve"><tspan style="fill:var(--c1)">   19 </tspan><tspan style="fill:var(--c3)">Resources</tspan>:                                                </text>
+<text x="32" y="472.48" xml:space="preserve"><tspan style="fill:var(--c1)">   20 </tspan>  <tspan style="fill:var(--c5)">Bucket</tspan>: <tspan font-weight="bold">Change Type: Modify</tspan>                             </text>
+<text x="32" y="494.79" xml:space="preserve"><tspan style="fill:var(--c1)">   21 </tspan>    <tspan style="fill:var(--c3)">Type</tspan>: <tspan style="fill:var(--c4)">AWS::S3::Bucket</tspan>                                 </text>
+<text x="32" y="517.09" xml:space="preserve"><tspan style="fill:var(--c2)">I </tspan><tspan style="fill:var(--c1)"> 22 </tspan>    <tspan style="fill:var(--c3)" text-decoration="underline">Properties</tspan>:                                           </text>
+<text x="32" y="539.39" xml:space="preserve"><tspan style="fill:var(--c1)">   23 </tspan>      <tspan style="fill:var(--c3)">VersioningConfiguration</tspan>:                            </text>
+<text x="32" y="561.7" xml:space="preserve"><tspan style="fill:var(--c1)">   24 </tspan>        <tspan style="fill:var(--c3)">Status</tspan>: !Ref <tspan style="fill:var(--c4)">Versioning</tspan>                           </text>
+<text x="32" y="584" xml:space="preserve"><tspan style="fill:var(--c1)">   25 </tspan>      <tspan style="fill:var(--c3)">LifecycleConfiguration</tspan>:                             </text>
+<text x="32" y="606.3" xml:space="preserve"><tspan style="fill:var(--c1)">   26 </tspan>        <tspan style="fill:var(--c3)">Rules</tspan>:                                            </text>
+<text x="32" y="628.61" xml:space="preserve"><tspan style="fill:var(--c1)">   27 </tspan>          - <tspan style="fill:var(--c3)">Id</tspan>: <tspan style="fill:var(--c4)">expire-noncurrent</tspan>                         </text>
+<text x="32" y="650.91" xml:space="preserve"><tspan style="fill:var(--c1)">   28 </tspan>            <tspan style="fill:var(--c3)">Status</tspan>: <tspan style="fill:var(--c4)">Enabled</tspan>                               </text>
+<text x="32" y="673.21" xml:space="preserve"><tspan style="fill:var(--c1)">   29 </tspan>            <tspan style="fill:var(--c3)">ExpirationInDays</tspan>: !Ref <tspan style="fill:var(--c4)">RetentionDays</tspan>          </text>
+<text x="32" y="695.52" xml:space="preserve"><tspan style="fill:var(--c1)">   30 </tspan>      <tspan style="fill:var(--c3)">Tags</tspan>:                                               </text>
+<text x="32" y="717.82" xml:space="preserve"><tspan style="fill:var(--c1)">   31 </tspan>        - <tspan style="fill:var(--c3)">Key</tspan>: <tspan style="fill:var(--c4)">environment</tspan>                                </text>
+<text x="32" y="740.12" xml:space="preserve"><tspan style="fill:var(--c1)">   32 </tspan>          <tspan style="fill:var(--c3)">Value</tspan>: !Ref <tspan style="fill:var(--c4)">Environment</tspan>                         </text>
+<text x="32" y="762.42" xml:space="preserve">doc/demo/templates/prod/storage.yml       <tspan style="fill:var(--c2)">I:3</tspan> 20,1           All</text>
+</svg>

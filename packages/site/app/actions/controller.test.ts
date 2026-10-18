@@ -4,27 +4,11 @@ import { describe, it } from 'remix/test';
 import { router } from '../router.ts';
 import { routes } from '../routes.ts';
 
-async function get(path: string) {
-  return router.fetch(new URL(path, 'http://localhost'));
-}
-
-describe('pages', () => {
-  for (const path of [routes.home.href(), routes.resume.href(), routes.blog.index.href()]) {
-    it(`GET ${path} renders a page`, async () => {
-      const response = await get(path);
-      assert.equal(response.status, 200);
-      assert.match(await response.text(), /<html[\s>]/);
-    });
-  }
-
-  it('GET a blog post renders its body', async () => {
-    const response = await get(routes.blog.show.href({ slug: 'write-your-own-neural-networks' }));
+describe('root', () => {
+  it(`GET ${routes.home.href()} returns the home page`, async () => {
+    const response = await router.fetch(new URL(routes.home.href(), 'http://localhost'));
     assert.equal(response.status, 200);
-    assert.match(await response.text(), /MultiLayer Perceptrons/);
-  });
-
-  it('GET an unknown blog post returns 404', async () => {
-    const response = await get(routes.blog.show.href({ slug: 'missing' }));
-    assert.equal(response.status, 404);
+    assert.match(response.headers.get('content-type') ?? '', /text\/html/);
+    assert.match(await response.text(), /<title>Michael Barney<\/title>/);
   });
 });

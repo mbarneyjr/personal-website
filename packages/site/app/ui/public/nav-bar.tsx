@@ -1,132 +1,81 @@
-import { clientEntry, css, on, type Handle } from 'remix/component'
+import { clientEntry, css, type Handle, on, ref } from 'remix/component';
+import { routes } from '../../routes.ts';
+import { border, color, layout, space, text } from './styles.ts';
+import { ThemeControl } from './theme-control.tsx';
 
-import { routes } from '../../routes.ts'
+interface NavBarProps {
+  pages: Array<{ text: string; href: string }>;
+  active?: string;
+}
 
-export type NavSection = 'resume' | 'blog'
+const menuStyle = css({
+  positionArea: 'bottom span-left',
+  padding: 'var(--space-2)',
+  '& a': { display: 'block', padding: 'var(--space-3)' },
+});
 
-const links = [
-  { label: 'github', href: 'https://github.com/mbarneyjr', icon: 'fa-github', color: '#fff' },
-  { label: 'reddit', href: 'https://reddit.com/user/mbarneyme', icon: 'fa-reddit', color: '#FF4500' },
-  { label: 'instagram', href: 'https://instagram.com/mbarneyme', icon: 'fa-instagram', color: '#C13584' },
-  { label: 'twitter', href: 'https://twitter.com/mbarneyjr', icon: 'fa-twitter', color: '#1DA1F2' },
-  { label: 'resume', href: routes.resume.href(), icon: 'fa-file-text', section: 'resume' },
-  { label: 'blog', href: routes.blog.index.href(), icon: 'fa-rss-square', section: 'blog' },
-]
+export const NavBar = clientEntry(import.meta.url, function NavBar(handle: Handle<NavBarProps>) {
+  let collapsed = false;
+  let neededWidth = 0;
 
-export const NavBar = clientEntry(import.meta.url, function NavBar(handle: Handle<{ active?: NavSection }>) {
-  let open = false
+  function observe(row: Element, signal: AbortSignal) {
+    const observer = new ResizeObserver(() => {
+      if (!collapsed) neededWidth = row.scrollWidth;
+      const next = row.clientWidth < neededWidth;
+      if (next !== collapsed) {
+        collapsed = next;
+        handle.update();
+      }
+    });
+    observer.observe(row);
+    signal.addEventListener('abort', () => observer.disconnect());
+  }
 
-  return () => (
-    <nav mix={navStyle}>
-      <div mix={innerStyle}>
-        <a href={routes.home.href()} mix={itemStyle}>
-          Michael Barney
-        </a>
-        <button
-          type="button"
-          aria-label="toggle navigation"
-          aria-expanded={open}
-          aria-controls={handle.id}
-          mix={[
-            itemStyle,
-            toggleStyle,
-            on('click', () => {
-              open = !open
-              handle.update()
-            }),
-          ]}
+  return () => {
+    const links = handle.props.pages.map((page) => (
+      <li key={page.href}>
+        <a
+          href={page.href}
+          aria-current={page.href === handle.props.active ? 'page' : undefined}
+          mix={page.href === handle.props.active ? color.inverted : undefined}
         >
-          <span />
-          <span />
-          <span />
-        </button>
-        <div id={handle.id} mix={targetsStyle} data-open={open}>
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              aria-label={link.label}
-              aria-current={link.section && link.section === handle.props.active ? 'page' : undefined}
-              mix={[itemStyle, linkStyle]}
-              style={link.color ? { color: link.color } : undefined}
-            >
-              {link.label}
-              <i class={`fa fa-large ${link.icon}`} />
-            </a>
-          ))}
+          /{page.text}
+        </a>
+      </li>
+    ));
+
+    return (
+      <nav mix={[border.bottom, space.padBlock2]}>
+        <div mix={layout.container}>
+          <div mix={[layout.row, space.gap4, ref(observe)]}>
+            <a href={routes.home.href()}>barney.dev</a>
+            {collapsed ? (
+              <>
+                <button type="button" popovertarget="nav-menu" mix={layout.pushEnd}>
+                  menu
+                </button>
+                <ul
+                  id="nav-menu"
+                  popover
+                  mix={[
+                    layout.plainList,
+                    border.all,
+                    menuStyle,
+                    on('click', (event) => {
+                      if ((event.target as Element).closest('a')) event.currentTarget.hidePopover();
+                    }),
+                  ]}
+                >
+                  {links}
+                </ul>
+              </>
+            ) : (
+              <ul mix={[layout.plainList, layout.row, layout.pushEnd, space.gap3, text.nowrap]}>{links}</ul>
+            )}
+            <ThemeControl />
+          </div>
         </div>
-      </div>
-    </nav>
-  )
-})
-
-const mobile = '@media (max-width: 720px)'
-
-const navStyle = css({
-  backgroundColor: 'var(--dim-color)',
-  fontFamily: 'Acme, sans-serif',
-  marginBottom: '1rem',
-  boxShadow: [
-    'rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset',
-    'rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset',
-    'rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset',
-    'rgba(0, 0, 0, 0.06) 0px 2px 1px',
-    'rgba(0, 0, 0, 0.09) 0px 4px 2px',
-    'rgba(0, 0, 0, 0.09) 0px 8px 4px',
-    'rgba(0, 0, 0, 0.09) 0px 16px 8px',
-    'rgba(0, 0, 0, 0.09) 0px 32px 16px',
-  ].join(', '),
-  '@media print': { display: 'none' },
-})
-
-const innerStyle = css({
-  maxWidth: '1024px',
-  margin: 'auto',
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'space-between',
-})
-
-const itemStyle = css({
-  padding: '1rem',
-  textDecoration: 'none',
-  color: 'var(--light-color)',
-})
-
-const linkStyle = css({
-  whiteSpace: 'nowrap',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'right',
-  gap: '0.25rem',
-  '&:hover, &[aria-current]': { backgroundColor: 'var(--dark-color)' },
-})
-
-const toggleStyle = css({
-  display: 'none',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  border: 0,
-  background: 'none',
-  cursor: 'pointer',
-  '& span': {
-    display: 'block',
-    width: '32px',
-    height: '1px',
-    margin: '2px',
-    backgroundColor: 'var(--light-color)',
-    transition: '0.1s',
-  },
-  '&[aria-expanded="true"] span:nth-child(1)': { transform: 'rotate(-45deg) translate(0px, 7px)', width: '24px' },
-  '&[aria-expanded="true"] span:nth-child(2)': { opacity: 0 },
-  '&[aria-expanded="true"] span:nth-child(3)': { transform: 'rotate(45deg) translate(0px, -7px)', width: '24px' },
-  [mobile]: { display: 'flex' },
-})
-
-const targetsStyle = css({
-  display: 'flex',
-  [mobile]: {
-    display: 'none',
-    '&[data-open="true"]': { display: 'flex', flexBasis: '100%', flexDirection: 'column' },
-  },
-})
+      </nav>
+    );
+  };
+});

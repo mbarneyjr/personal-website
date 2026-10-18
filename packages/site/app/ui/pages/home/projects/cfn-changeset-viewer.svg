@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="16" style="--bg:light-dark(#ffffff, #000000);--fg:light-dark(#1f1f1f, #e5e5e5);--white:light-dark(#555555, #cccccc);--blue:light-dark(#0451a5, #3b8eea);--magenta:light-dark(#a626a4, #d670d6);--green:light-dark(#116329, #23d18b);--red:light-dark(#cd3131, #f14c4c);fill:var(--fg)">
+<rect width="800" height="800" style="fill:var(--bg)"/>
+<text x="40" y="44" xml:space="preserve"><tspan style="fill:var(--blue)">~/cfn-changeset-viewer</tspan></text>
+<text x="40" y="68" xml:space="preserve"><tspan style="fill:var(--magenta)">$</tspan> npx cfn-changeset-viewer --change-set-name file://examples/multiple.json</text>
+<text x="40" y="92" xml:space="preserve"><tspan style="fill:var(--green)">+ BucketToAdd:</tspan></text>
+<text x="40" y="116" xml:space="preserve"><tspan style="fill:var(--green)">+   Type: "AWS::S3::Bucket"</tspan></text>
+<text x="40" y="140" xml:space="preserve"><tspan style="fill:var(--green)">+   Properties: {}</tspan></text>
+<text x="40" y="188" xml:space="preserve"><tspan style="fill:var(--red)">- BucketToRemove: # </tspan><tspan style="fill:var(--red)">Policy: Delete</tspan></text>
+<text x="40" y="212" xml:space="preserve"><tspan style="fill:var(--red)">-   Type: "AWS::S3::Bucket"</tspan></text>
+<text x="40" y="236" xml:space="preserve"><tspan style="fill:var(--red)">-   Properties: {}</tspan></text>
+<text x="40" y="284" xml:space="preserve"><tspan style="fill:var(--white)">  BucketToUpdate:</tspan></text>
+<text x="40" y="308" xml:space="preserve"><tspan style="fill:var(--white)">    Properties:</tspan></text>
+<text x="40" y="332" xml:space="preserve"><tspan style="fill:var(--green)">+     VersioningConfiguration:</tspan></text>
+<text x="40" y="356" xml:space="preserve"><tspan style="fill:var(--green)">+       Status: "Enabled"</tspan></text>
+<text x="40" y="404" xml:space="preserve"><tspan style="fill:var(--white)">  BucketWithTags:</tspan></text>
+<text x="40" y="428" xml:space="preserve"><tspan style="fill:var(--white)">    Properties:</tspan></text>
+<text x="40" y="452" xml:space="preserve"><tspan style="fill:var(--white)">      Tags:</tspan></text>
+<text x="40" y="476" xml:space="preserve"><tspan style="fill:var(--red)">-       - Value: "Bar"</tspan></text>
+<text x="40" y="500" xml:space="preserve"><tspan style="fill:var(--green)">+         Value: "Baz"</tspan></text>
+<text x="40" y="524" xml:space="preserve"><tspan style="fill:var(--red)">-         Key: "ToRemove"</tspan></text>
+<text x="40" y="548" xml:space="preserve"><tspan style="fill:var(--green)">+         Key: "ToAdd"</tspan></text>
+<text x="40" y="572" xml:space="preserve"><tspan style="fill:var(--red)">-       - Value: "Hello"</tspan></text>
+<text x="40" y="596" xml:space="preserve"><tspan style="fill:var(--green)">+         Value: "World"</tspan></text>
+<text x="40" y="644" xml:space="preserve">===== Results =====</text>
+<text x="40" y="668" xml:space="preserve">1 resources added</text>
+<text x="40" y="692" xml:space="preserve">2 resources modified</text>
+<text x="40" y="716" xml:space="preserve">1 resources removed</text>
+<text x="40" y="740" xml:space="preserve">0 resources imported</text>
+<text x="40" y="764" xml:space="preserve">0 undetermined resources</text>
+</svg>

@@ -8,10 +8,7 @@
         command = "npm ci --include dev";
       };
       settings.processes.site = {
-        command = ''
-          cd packages/site
-          npm run hmr
-        '';
+        command = "npm run hmr --workspace @barneydev/site";
         depends_on.npm-ci.condition = "process_completed";
       };
     };

@@ -11,7 +11,6 @@ export const assets = createAssetServer({
   basePath: '/assets',
   mounts: { app: 'app', npm: '../../node_modules' },
   rootDir,
-
   allowFiles: ['app/routes.ts', 'app/**/public/**'],
   allowPackages: ['remix'],
   denyFiles: ['app/**/*.test.*'],
@@ -26,8 +25,7 @@ export const assets = createAssetServer({
       }
     : undefined,
   scripts: { loaders: isHmr ? [componentHmr()] : undefined },
+  files: {
+    extensions: ['.svg', '.png', '.woff2'],
+  },
 });
-
-const entry = 'app/actions/public/entry.ts';
-
-export const scriptEntry = await assets.getScriptEntry(entry);

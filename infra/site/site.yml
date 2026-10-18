@@ -29,6 +29,9 @@ Parameters:
   CodeVersion:
     Type: String
     Description: S3 object version of the site deployment package
+  BuildId:
+    Type: String
+    Description: Git short SHA of the site build
 
 
 Conditions:
@@ -55,6 +58,8 @@ Resources:
       EnvironmentVariables:
         NODE_ENV: production
         NODE_OPTIONS: --import remix/node-tsx
+        ENVIRONMENT_NAME: !Ref EnvironmentName
+        BUILD_ID: !Ref BuildId
 
   SiteFunctionPolicy:
     Type: AWS::Lambda::ResourcePolicy
