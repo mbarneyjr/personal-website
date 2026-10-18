@@ -12,6 +12,10 @@ on:
       - main
       - feature/*
 
+concurrency:
+  group: ci-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
 env:
   TARGET_ACCOUNT_ID: ${{ secrets.DEV_ACCOUNT_ID }}
   COLUMNS: 160
@@ -89,7 +93,7 @@ jobs:
           marker: ci:plan-dev
           body: ${{ steps.changeset.outputs.body }}
   deploy_pr:
-    needs: [check]
+    needs: [check, plan_dev]
     if: contains(github.event.pull_request.labels.*.name, 'ci:deploy-preview')
     runs-on: ubuntu-24.04-arm
     concurrency:
