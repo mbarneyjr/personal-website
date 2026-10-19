@@ -1,0 +1,29 @@
+@layer fonts {
+  @font-face {
+    font-family: "Berkeley Mono";
+    src: url("./fonts/BerkeleyMono-Regular.woff2") format("woff2");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Berkeley Mono";
+    src: url("./fonts/BerkeleyMono-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Berkeley Mono";
+    src: url("./fonts/BerkeleyMono-Oblique.woff2") format("woff2");
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Berkeley Mono";
+    src: url("./fonts/BerkeleyMono-Bold-Oblique.woff2") format("woff2");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+}

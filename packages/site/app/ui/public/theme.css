@@ -1,0 +1,122 @@
+@layer theme {
+  :root {
+    color-scheme: light dark;
+
+    --color-bg: light-dark(hsl(40 20% 95%), hsl(40 5% 10%));
+    --color-panel: light-dark(hsl(40 20% 90%), hsl(40 5% 10%));
+    --color-fg: light-dark(hsl(40 5% 10%), hsl(43 20% 90%));
+    --color-muted: light-dark(hsl(40 5% 40%), hsl(40 5% 55%));
+    --color-rule: light-dark(hsl(40 10% 75%), hsl(40 5% 20%));
+    --color-accent-1: light-dark(hsl(30 100% 35%), hsl(30 100% 45%));
+    --color-accent-2: light-dark(hsl(110 85% 32%), hsl(110 85% 56%));
+
+    --font-mono: "Berkeley Mono", ui-monospace, monospace;
+    --text-sm: 0.8125rem;
+    --text-base: 0.9375rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.5rem;
+    --leading-tight: 1.2;
+    --leading-base: 1.6;
+    --tracking-label: 0.12em;
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 1rem;
+    --space-4: 1.5rem;
+    --space-5: 3rem;
+
+    --content-width: 960px;
+    --gutter: 16px;
+    --column-min: 16rem;
+    --column-wide: 28rem;
+    --shrink-basis: 12ch;
+
+    --duration-fast: 120ms;
+    --duration-blink: 1s;
+    --easing-standard: ease-out;
+  }
+
+  :root[data-theme="light"] {
+    color-scheme: light;
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-mono);
+    font-size: var(--text-base);
+    line-height: var(--leading-base);
+    font-variant-ligatures: none;
+  }
+
+  a {
+    color: var(--color-accent-1);
+    text-underline-offset: 3px;
+  }
+
+  a:hover {
+    background-color: var(--color-accent-1);
+    color: var(--color-bg);
+    text-decoration: none;
+  }
+
+  button {
+    appearance: none;
+    border: 1px solid currentColor;
+    border-radius: 0;
+    background-color: transparent;
+    color: var(--color-accent-1);
+    padding: var(--space-1) var(--space-2);
+    cursor: pointer;
+  }
+
+  button:hover {
+    border-color: var(--color-accent-1);
+    background-color: var(--color-accent-1);
+    color: var(--color-bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent-1);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-1);
+    color: var(--color-bg);
+  }
+
+  @media print {
+    @page {
+      size: letter;
+      margin: 0;
+    }
+
+    :root,
+    :root[data-theme] {
+      color-scheme: light;
+      --color-bg: hsl(0 0% 100%);
+      --color-panel: hsl(0 0% 100%);
+      --gutter: 0;
+      --space-3: 0.75rem;
+      --space-4: 0.75rem;
+      --space-5: 0.75rem;
+      --leading-base: 1.35;
+      font-size: 12px;
+    }
+
+    body {
+      min-height: 0;
+      padding: 0.4in;
+    }
+
+    body > header,
+    body > footer {
+      display: none;
+    }
+  }
+}

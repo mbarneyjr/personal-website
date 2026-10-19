@@ -3,7 +3,6 @@ import { compression } from 'remix/middleware/compression';
 import { render } from 'remix/middleware/render';
 import { staticFiles } from 'remix/middleware/static';
 import { createRouter, type Middleware, type MiddlewareContext } from 'remix/router';
-
 import blogController from './actions/blog/controller.tsx';
 import controller from './actions/controller.tsx';
 import { assets } from './assets.ts';

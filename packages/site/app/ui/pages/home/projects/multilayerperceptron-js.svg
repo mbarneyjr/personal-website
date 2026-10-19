@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="16" style="--bg:light-dark(#ffffff, #000000);--fg:light-dark(#1f1f1f, #e5e5e5);--muted:light-dark(#767676, #666666);--blue:light-dark(#0451a5, #3b8eea);--magenta:light-dark(#a626a4, #d670d6);fill:var(--fg)">
+<defs><marker id="mlp-arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--muted)"/></marker></defs>
+<rect width="800" height="800" style="fill:var(--bg)"/>
+<text x="56" y="64" xml:space="preserve"><tspan style="fill:var(--blue)">~/multilayerperceptron-js/examples</tspan></text>
+<text x="56" y="89" xml:space="preserve"><tspan style="fill:var(--magenta)">$</tspan> node xor.js</text>
+<text x="56" y="114" xml:space="preserve">Epoch 1; 1.9999395482727673</text>
+<text x="56" y="139" xml:space="preserve"><tspan style="fill:var(--muted)">...</tspan></text>
+<text x="56" y="164" xml:space="preserve">Epoch 2000; 1.9608808532099857</text>
+<text x="56" y="189" xml:space="preserve">Epoch 4000; 0.44139425524055664</text>
+<text x="56" y="214" xml:space="preserve">Epoch 6000; 0.25670563854935</text>
+<text x="56" y="239" xml:space="preserve">Epoch 8000; 0.196844564458888</text>
+<text x="56" y="264" xml:space="preserve">Epoch 10000; 0.16519462726245693</text>
+<text x="56" y="289" xml:space="preserve">0,0 =&gt; 0.03981335336987717</text>
+<text x="56" y="314" xml:space="preserve">0,1 =&gt; 0.9611858644627403</text>
+<text x="56" y="339" xml:space="preserve">1,0 =&gt; 0.9517339133961039</text>
+<text x="56" y="364" xml:space="preserve">1,1 =&gt; 0.03830105175142402</text>
+<text x="56" y="389" xml:space="preserve"><tspan style="fill:var(--blue)">~/multilayerperceptron-js/examples</tspan></text>
+<text x="56" y="414" xml:space="preserve"><tspan style="fill:var(--magenta)">$</tspan> </text>
+<rect x="76" y="400" width="10" height="19"/>
+<g style="stroke:var(--muted)" stroke-width="2"><line x1="140" y1="530" x2="202" y2="530" marker-end="url(#mlp-arrow)"/><line x1="140" y1="650" x2="202" y2="650" marker-end="url(#mlp-arrow)"/><line x1="256" y1="530" x2="372" y2="530" marker-end="url(#mlp-arrow)"/><line x1="251.2" y1="545" x2="377.1" y2="633.9" marker-end="url(#mlp-arrow)"/><line x1="251.2" y1="635" x2="377.1" y2="546.1" marker-end="url(#mlp-arrow)"/><line x1="256" y1="650" x2="372" y2="650" marker-end="url(#mlp-arrow)"/><line x1="424.5" y1="538.7" x2="543.6" y2="580.7" marker-end="url(#mlp-arrow)"/><line x1="424.5" y1="641.3" x2="543.6" y2="599.3" marker-end="url(#mlp-arrow)"/><line x1="596" y1="590" x2="660" y2="590" marker-end="url(#mlp-arrow)"/></g>
+<g style="fill:none;stroke:var(--fg)" stroke-width="2"><circle cx="230" cy="530" r="26"/><circle cx="230" cy="650" r="26"/><circle cx="400" cy="530" r="26"/><circle cx="400" cy="650" r="26"/><circle cx="570" cy="590" r="26"/></g>
+<text x="230" y="740" text-anchor="middle" style="fill:var(--muted)" font-size="13" letter-spacing="0.12em">INPUT</text><text x="400" y="740" text-anchor="middle" style="fill:var(--muted)" font-size="13" letter-spacing="0.12em">HIDDEN</text><text x="570" y="740" text-anchor="middle" style="fill:var(--muted)" font-size="13" letter-spacing="0.12em">OUTPUT</text>
+</svg>

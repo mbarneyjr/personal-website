@@ -29,7 +29,7 @@ const server = http.createServer(
   ),
 );
 
-server.listen(hmrProxyPort, '127.0.0.1');
+server.listen(hmrProxyPort, '0.0.0.0');
 
 let shuttingDown = false;
 
