@@ -6,7 +6,12 @@ import { posts } from './posts.ts';
 
 export function BlogIndexPage() {
   return () => (
-    <Document title="Blog - Michael Barney" description="Posts by Michael Barney." active={routes.blog.index.href()}>
+    <Document
+      title="Blog - Michael Barney"
+      description="Posts by Michael Barney."
+      path={routes.blog.index.href()}
+      active={routes.blog.index.href()}
+    >
       <Section heading="POSTS">
         <ol mix={[layout.plainList, layout.stack, space.gap4]}>
           {posts.map((post) => (

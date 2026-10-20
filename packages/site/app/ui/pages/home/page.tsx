@@ -1,3 +1,4 @@
+import { routes } from '../../../routes.ts';
 import { Document } from '../lib/document.tsx';
 import { aws, homelab } from './data.tsx';
 import { Introduction } from './introduction.tsx';
@@ -7,7 +8,7 @@ import { Projects } from './projects.tsx';
 
 export function HomePage() {
   return () => (
-    <Document description="The personal website of Michael Barney.">
+    <Document description="The personal website of Michael Barney." path={routes.home.href()}>
       <Introduction />
       <Operator />
       <InventorySection heading="HOMELAB" groups={homelab} />

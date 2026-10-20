@@ -56,7 +56,12 @@ function CredentialItem(handle: Handle<{ credential: Credential }>) {
 
 export function ResumePage() {
   return () => (
-    <Document title="Resume - Michael Barney" description="The resume of Michael Barney." active={routes.resume.href()}>
+    <Document
+      title="Resume - Michael Barney"
+      description="The resume of Michael Barney."
+      path={routes.resume.href()}
+      active={routes.resume.href()}
+    >
       <header mix={[layout.stack, space.gap2]}>
         <h1 mix={text.title}>{name}</h1>
         <p mix={[layout.cluster, space.columnGap3, color.muted]}>

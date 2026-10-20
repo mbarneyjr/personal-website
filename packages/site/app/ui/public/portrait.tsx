@@ -30,8 +30,8 @@ export const Portrait = clientEntry(import.meta.url, function Portrait(handle: H
   return () => (
     <figure mix={[portraitStyle, ref(track)]} data-active={active ? '' : undefined}>
       <div>
-        <img src="/images/mbarney.png" alt="Michael Barney" width="512" height="512" />
-        <img src="/images/hat.png" alt="" width="512" height="512" />
+        <img src="/images/mbarney.webp" alt="Michael Barney" width="320" height="320" />
+        <img src="/images/hat.webp" alt="" width="320" height="320" />
       </div>
       <figcaption mix={[layout.row, layout.justifyBetween, text.label, color.accent2]}>
         <span>FIG. 01</span>

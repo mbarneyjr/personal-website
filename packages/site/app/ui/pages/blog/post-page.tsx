@@ -70,7 +70,9 @@ export function BlogPostPage(handle: Handle<BlogPostPageProps>) {
       <Document
         title={`${post.title} - Michael Barney`}
         description={post.description}
+        path={routes.blog.show.href({ slug: post.slug })}
         active={routes.blog.index.href()}
+        article={{ published: post.posted, modified: post.updated }}
       >
         <article mix={[layout.stack, space.gap4]}>
           <header mix={[layout.stack, space.gap2, border.bottom, space.padBlock3]}>

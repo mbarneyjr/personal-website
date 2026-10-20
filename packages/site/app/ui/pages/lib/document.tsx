@@ -8,22 +8,28 @@ import { layout, space } from '../../public/styles.ts';
 
 const scriptEntry = await assets.getScriptEntry('app/ui/public/entry.ts');
 
+const origin = 'https://barney.dev';
+
 export interface DocumentProps {
   children?: RemixNode;
   title?: string;
   description: string;
+  path: string;
   active?: string;
+  article?: { published: string; modified?: string };
 }
 
 const resetCssHref = await assets.getHref('app/ui/public/reset.css');
 const fontsCssHref = await assets.getHref('app/ui/public/fonts.css');
 const themeCssHref = await assets.getHref('app/ui/public/theme.css');
 const faviconHref = await assets.getHref('app/ui/public/favicon.svg');
-const berkeleyMonoRegularHref = await assets.getHref('app/ui/public/fonts/BerkeleyMono-Regular.woff2');
+const fontHrefs = await Promise.all(
+  ['Regular', 'Bold', 'Oblique'].map((style) => assets.getHref(`app/ui/public/fonts/BerkeleyMono-${style}.woff2`)),
+);
 
 export function Document(handle: Handle<DocumentProps>) {
   return () => {
-    const { children, title = 'Michael Barney', description, active } = handle.props;
+    const { children, title = 'Michael Barney', description, path, active, article } = handle.props;
     const { href, importMap, preloads } = scriptEntry;
     return (
       <html lang="en-US" data-rmx-preserve-attrs="data-theme">
@@ -35,6 +41,24 @@ export function Document(handle: Handle<DocumentProps>) {
           </script>
           <title>{title}</title>
           <meta name="description" content={description} />
+          <meta property="og:type" content={article ? 'article' : 'website'} />
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:site_name" content="Michael Barney" />
+          <link rel="canonical" href={`${origin}${path}`} />
+          <meta property="og:url" content={`${origin}${path}`} />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={description} />
+          <meta property="og:image" content={`${origin}/images/og.png`} />
+          <meta property="og:image:type" content="image/png" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image:alt" content="Michael Barney, personal website" />
+          {article && <meta property="article:published_time" content={article.published} />}
+          {article?.modified && <meta property="article:modified_time" content={article.modified} />}
+          {article && <meta property="article:author" content={origin} />}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@mbarneyjr" />
+          <meta name="twitter:creator" content="@mbarneyjr" />
           <link rel="icon" type="image/svg+xml" href={faviconHref} />
           <ImportMap value={importMap} />
           {preloads.map((preloadHref) => (
@@ -42,7 +66,9 @@ export function Document(handle: Handle<DocumentProps>) {
           ))}
           <script type="module" src={href}></script>
 
-          <link rel="preload" href={berkeleyMonoRegularHref} as="font" type="font/woff2" crossOrigin="anonymous" />
+          {fontHrefs.map((fontHref) => (
+            <link key={fontHref} rel="preload" href={fontHref} as="font" type="font/woff2" crossOrigin="anonymous" />
+          ))}
           <link rel="stylesheet" href={resetCssHref} />
           <link rel="stylesheet" href={fontsCssHref} />
           <link rel="stylesheet" href={themeCssHref} />

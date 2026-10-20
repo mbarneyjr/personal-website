@@ -142,6 +142,6 @@ export const projects: Project[] = [
     href: 'https://github.com/mbarneyjr/DiscoPong',
     stack: 'C++',
     description: 'A sandbox project for learning graphics programming with OpenGL.',
-    image: '/images/projects/discopong.png',
+    image: '/images/projects/discopong.webp',
   },
 ];
