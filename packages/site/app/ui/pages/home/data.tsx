@@ -111,6 +111,13 @@ export const projects: Project[] = [
     image: { svg: await readFile(new URL('./projects/cfn.nvim.svg', import.meta.url), 'utf8') },
   },
   {
+    name: 'CloudFormation Changelog',
+    href: '/apps/cloudformation-changelog',
+    stack: 'TypeScript, Remix',
+    description: 'A viewer for changes between versions of the CloudFormation resource specification.',
+    image: { svg: await readFile(new URL('./projects/cloudformation-changelog.svg', import.meta.url), 'utf8') },
+  },
+  {
     name: 'cfn-changeset-viewer',
     href: 'https://github.com/trek10inc/cfn-changeset-viewer',
     stack: 'TypeScript',

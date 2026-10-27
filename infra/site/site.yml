@@ -51,6 +51,7 @@ Resources:
       Runtime: nodejs24.x
       AuthType: IamAuth
       EntryPoint: packages/site/server.ts
+      Timeout: 60
       CodeUri:
         Bucket: !Ref CodeBucket
         Key: !Ref CodeKey
@@ -117,6 +118,7 @@ Resources:
             OriginAccessControlId: !GetAtt SiteOriginAccessControl.Id
             CustomOriginConfig:
               OriginProtocolPolicy: https-only
+              OriginReadTimeout: 60
         DefaultCacheBehavior:
           TargetOriginId: primary
           ViewerProtocolPolicy: redirect-to-https

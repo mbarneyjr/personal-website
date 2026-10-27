@@ -5,7 +5,7 @@ import { projects } from './data.tsx';
 
 const projectImageStyle = css({ aspectRatio: '1', width: '100%', objectFit: 'cover' });
 
-const inlineImageStyle = css({ '& > svg': { display: 'block', width: '100%', height: '100%' } });
+const inlineImageStyle = css({ userSelect: 'none', '& > svg': { display: 'block', width: '100%', height: '100%' } });
 
 export function Projects() {
   return () => (

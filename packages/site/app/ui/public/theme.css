@@ -4,11 +4,14 @@
 
     --color-bg: light-dark(hsl(40 20% 95%), hsl(40 5% 10%));
     --color-panel: light-dark(hsl(40 20% 90%), hsl(40 5% 10%));
-    --color-fg: light-dark(hsl(40 5% 10%), hsl(43 20% 90%));
+    --color-fg: light-dark(hsl(40 5% 10%), hsl(40 20% 90%));
     --color-muted: light-dark(hsl(40 5% 40%), hsl(40 5% 55%));
     --color-rule: light-dark(hsl(40 10% 75%), hsl(40 5% 20%));
     --color-accent-1: light-dark(hsl(30 100% 35%), hsl(30 100% 45%));
-    --color-accent-2: light-dark(hsl(110 85% 32%), hsl(110 85% 56%));
+    --color-accent-2: light-dark(hsl(110 85% 30%), hsl(110 85% 55%));
+    --color-added: light-dark(hsl(205 100% 30%), hsl(205 90% 75%));
+    --color-alert: light-dark(hsl(0 75% 40%), hsl(0 85% 65%));
+    --color-caution: light-dark(hsl(45 100% 30%), hsl(45 90% 55%));
 
     --font-mono: "Berkeley Mono", ui-monospace, monospace;
     --text-sm: 0.8125rem;
@@ -30,6 +33,7 @@
     --column-min: 16rem;
     --column-wide: 28rem;
     --shrink-basis: 12ch;
+    --line-number-width: 4ch;
 
     --duration-fast: 120ms;
     --duration-blink: 1s;
@@ -54,12 +58,12 @@
   }
 
   a {
-    color: var(--color-accent-1);
+    color: var(--link-color, var(--color-accent-1));
     text-underline-offset: 3px;
   }
 
   a:hover {
-    background-color: var(--color-accent-1);
+    background-color: var(--link-color, var(--color-accent-1));
     color: var(--color-bg);
     text-decoration: none;
   }

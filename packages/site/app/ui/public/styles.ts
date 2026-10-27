@@ -138,6 +138,10 @@ export const color = {
   accent1: css({ color: 'var(--color-accent-1)' }),
   /** System data color: status, footer values, project stacks, captions. */
   accent2: css({ color: 'var(--color-accent-2)' }),
+  /** System data that is removed. */
+  alert: css({ color: 'var(--color-alert)' }),
+  /** System data that is modified. */
+  caution: css({ color: 'var(--color-caution)' }),
   bg: css({ backgroundColor: 'var(--color-bg)' }),
   panel: css({ backgroundColor: 'var(--color-panel)' }),
   /** Foreground and background colors swapped. Used for the current navigation link. */
