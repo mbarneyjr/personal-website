@@ -1,47 +1,32 @@
 import { css, type Handle, on } from 'remix/component';
 import { layout, text } from './styles.ts';
-
-const themes = ['auto', 'light', 'dark'] as const;
-type Theme = (typeof themes)[number];
+import { type Theme, theme, themes } from './theme.ts';
 
 const fixedWidth = css({
   boxSizing: 'content-box',
-  width: `${3 + Math.max(...themes.map((theme) => theme.length))}ch`,
+  width: `${3 + Math.max(...themes.map((value) => value.length))}ch`,
 });
 
 export function ThemeControl(handle: Handle) {
-  let theme: Theme = 'auto';
+  let current: Theme = 'auto';
 
-  function apply(next: Theme) {
-    theme = next;
-    if (theme === 'auto') delete document.documentElement.dataset.theme;
-    else document.documentElement.dataset.theme = theme;
+  function sync() {
+    current = theme.current;
+    handle.update();
   }
 
   handle.queueTask(() => {
-    const current = document.documentElement.dataset.theme;
-    if (current === 'light' || current === 'dark') {
-      theme = current;
-      handle.update();
-    }
+    sync();
+    theme.addEventListener('change', sync, { signal: handle.signal });
   });
-
-  function select() {
-    apply(themes[(themes.indexOf(theme) + 1) % themes.length]);
-    try {
-      if (theme === 'auto') localStorage.removeItem('theme');
-      else localStorage.setItem('theme', theme);
-    } catch {}
-    handle.update();
-  }
 
   return () => (
     <button
       type="button"
-      aria-label={`Color theme: ${theme}`}
-      mix={[on('click', select), fixedWidth, layout.fixed, text.alignCenter]}
+      aria-label={`Color theme: ${current}`}
+      mix={[on('click', () => theme.cycle()), fixedWidth, layout.fixed, text.alignCenter]}
     >
-      ◐ {theme}
+      ◐ {current}
     </button>
   );
 }

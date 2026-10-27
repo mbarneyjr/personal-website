@@ -1,5 +1,6 @@
 import { clientEntry, css, type Handle, on, ref } from 'remix/component';
 import { routes } from '../../routes.ts';
+import { KeyboardControl } from './keyboard-control.tsx';
 import { border, color, layout, space, text } from './styles.ts';
 import { ThemeControl } from './theme-control.tsx';
 
@@ -73,6 +74,7 @@ export const NavBar = clientEntry(import.meta.url, function NavBar(handle: Handl
               <ul mix={[layout.plainList, layout.row, layout.pushEnd, space.gap3, text.nowrap]}>{links}</ul>
             )}
             <ThemeControl />
+            <KeyboardControl />
           </div>
         </div>
       </nav>
