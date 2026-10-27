@@ -1,7 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform:
   - AWS::LanguageExtensions
-  - AWS::Serverless-2016-10-31
 Description: Frontend infrastructure for site hosting
 
 
@@ -39,8 +38,21 @@ Conditions:
 
 
 Resources:
+  SiteFunctionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - !Sub arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
   SiteFunction:
-    Type: AWS::Serverless::WebFunction
+    Type: AWS::Lambda::WebFunction
     Metadata:
       cfn-lint:
         config:
@@ -48,19 +60,51 @@ Resources:
             - E3006
     Properties:
       FunctionName: !Sub ${ApplicationName}-${EnvironmentName}-site
-      Runtime: nodejs24.x
+
+  SiteFunctionRevision:
+    Type: AWS::Lambda::WebFunctionRevision
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - E3006
+    DependsOn: SiteFunction
+    Properties:
+      FunctionName: !Sub ${ApplicationName}-${EnvironmentName}-site
+      BuildConfig:
+        CodeConfig:
+          S3Object:
+            Bucket: !Ref CodeBucket
+            Key: !Ref CodeKey
+            VersionId: !Ref CodeVersion
+        RuntimeConfig:
+          Runtime: nodejs24.x
+      ServiceConfig:
+        ExecutionRoleArn: !GetAtt SiteFunctionRole.Arn
+        TimeoutSeconds: 60
+        EnvironmentVariables:
+          NODE_ENV: production
+          NODE_OPTIONS: --import remix/node-tsx
+          ENVIRONMENT_NAME: !Ref EnvironmentName
+          BUILD_ID: !Ref BuildId
+          AWS_LAMBDA_NODEJS_ENTRYPOINT: packages/site/server.ts
+
+  SiteFunctionEndpoint:
+    Type: AWS::Lambda::WebFunctionEndpoint
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - E3006
+    DependsOn: SiteFunction
+    Properties:
+      FunctionName: !Sub ${ApplicationName}-${EnvironmentName}-site
+      EndpointName: primary
+      EndpointType: HomeRegion
       AuthType: IamAuth
-      EntryPoint: packages/site/server.ts
-      Timeout: 60
-      CodeUri:
-        Bucket: !Ref CodeBucket
-        Key: !Ref CodeKey
-        Version: !Ref CodeVersion
-      EnvironmentVariables:
-        NODE_ENV: production
-        NODE_OPTIONS: --import remix/node-tsx
-        ENVIRONMENT_NAME: !Ref EnvironmentName
-        BUILD_ID: !Ref BuildId
+      RevisionWeights:
+        - RevisionId: !GetAtt SiteFunctionRevision.RevisionId
+          Weight: 100
 
   SiteFunctionPolicy:
     Type: AWS::Lambda::ResourcePolicy
