@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1904 1904" font-family="'Berkeley Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="29" style="--outer:light-dark(#ffffff, #000000);--bg:light-dark(hsl(40 20% 95%), hsl(40 5% 10%));--panel:light-dark(hsl(40 20% 90%), hsl(40 5% 10%));--fg:light-dark(hsl(40 5% 10%), hsl(40 20% 90%));--muted:light-dark(hsl(40 5% 40%), hsl(40 5% 55%));--rule:light-dark(hsl(40 10% 75%), hsl(40 5% 20%));--accent:light-dark(hsl(30 100% 35%), hsl(30 100% 45%));--added:light-dark(hsl(205 100% 30%), hsl(205 90% 75%));--alert:light-dark(hsl(0 75% 40%), hsl(0 85% 65%));--caution:light-dark(hsl(45 100% 30%), hsl(45 90% 55%));fill:var(--fg)">
+<rect width="1904" height="1904" style="fill:var(--outer)"/>
+<g transform="translate(70 70) scale(0.9264)">
+<rect width="1904" height="1904" style="fill:var(--bg)"/>
+<text x="62" y="50" style="fill:var(--accent)">barney.dev</text>
+<rect x="62" y="56" width="175" height="2" style="fill:var(--accent)"/>
+<text x="1411" y="50" style="fill:var(--accent)">/blog</text>
+<rect x="1411" y="56" width="87" height="2" style="fill:var(--accent)"/>
+<text x="1530" y="50" style="fill:var(--accent)">/resume</text>
+<rect x="1530" y="56" width="122" height="2" style="fill:var(--accent)"/>
+<rect x="1701" y="8" width="173" height="63" style="fill:none;stroke:var(--accent);stroke-width:2"/>
+<path d="M1744 33a8 8 0 0 0 0 16z" style="fill:var(--accent)"/>
+<circle cx="1744" cy="41" r="8" style="fill:none;stroke:var(--accent);stroke-width:2"/>
+<text x="1771" y="50" style="fill:var(--accent)">auto</text>
+<line x1="0" y1="89" x2="1904" y2="89" style="stroke:var(--rule);stroke-width:2;stroke-dasharray:4 4"/>
+<text x="62" y="165" font-size="46" font-weight="700">CloudFormation Changelog</text>
+<text x="62" y="228" style="fill:var(--muted)">Changes to the CloudFormation resource specification.</text>
+<g font-size="25">
+<text x="62" y="334" style="fill:var(--accent)">← 268.0.0</text>
+<text x="62" y="374" style="fill:var(--muted)">2026-10-15</text>
+<rect x="650" y="289" width="310" height="57" style="fill:none;stroke:var(--accent);stroke-width:2"/>
+<text x="805" y="326" text-anchor="middle" style="fill:var(--accent)">us-east-1</text>
+<polygon points="911,312 927,312 919,322" style="fill:var(--accent)"/>
+<rect x="977" y="289" width="310" height="57" style="fill:none;stroke:var(--accent);stroke-width:2"/>
+<text x="1132" y="326" text-anchor="middle" style="fill:var(--accent)">269.0.0</text>
+<polygon points="1238,312 1254,312 1246,322" style="fill:var(--accent)"/>
+<text x="969" y="391" text-anchor="middle" style="fill:var(--muted)">2026-10-22</text>
+<g letter-spacing="3">
+<text x="62" y="480" style="fill:var(--muted)">ADDED</text>
+<text x="168" y="480" font-weight="700">9</text>
+<text x="232" y="480" style="fill:var(--muted)">REMOVED</text>
+<text x="375" y="480" font-weight="700">2</text>
+<text x="437" y="480" style="fill:var(--muted)">MODIFIED</text>
+<text x="600" y="480" font-weight="700">24</text>
+<text x="676" y="480" style="fill:var(--muted)">DOCUMENTATION</text>
+<text x="930" y="480" font-weight="700">0</text>
+</g>
+</g>
+<text x="62" y="571" font-weight="700" letter-spacing="4">NEW RESOURCE TYPES</text>
+<rect x="473" y="560" width="1402" height="2"/>
+<g style="fill:none;stroke:var(--accent);stroke-width:2">
+<rect x="62" y="632" width="210" height="65"/>
+<rect x="289" y="632" width="245" height="65"/>
+<rect x="62" y="1058" width="210" height="65"/>
+<rect x="289" y="1058" width="245" height="65"/>
+</g>
+<g style="fill:var(--accent)">
+<text x="80" y="675">expand all</text>
+<text x="307" y="675">collapse all</text>
+<text x="80" y="1101">expand all</text>
+<text x="307" y="1101">collapse all</text>
+</g>
+<g font-weight="700" style="fill:var(--added)">
+<polygon points="62,759 78,769 62,779"/><text x="88" y="779">AWS::BcmPricingCalculator::BillEstimate</text>
+<polygon points="62,821 78,831 62,841"/><text x="88" y="841">AWS::Bedrock::RetrievalInstruction</text>
+<polygon points="62,884 78,894 62,904"/><text x="88" y="904">AWS::EC2::DeclarativePoliciesReport</text>
+</g>
+<text x="62" y="997" font-weight="700" letter-spacing="4">CHANGED RESOURCE TYPES</text>
+<rect x="557" y="986" width="1318" height="2"/>
+<g font-weight="700" style="fill:var(--caution)">
+<polygon points="62,1188 80,1188 71,1202"/><text x="88" y="1205">AWS::AppStream::Stack</text>
+</g>
+<rect x="63" y="1227" width="1811" height="458" style="fill:var(--panel);stroke:var(--rule);stroke-width:2"/>
+<g font-size="25" style="white-space:pre">
+<g style="fill:var(--muted)" text-anchor="end">
+<text x="140" y="1284">1</text>
+<text x="140" y="1325">2</text>
+<text x="140" y="1366">3</text>
+<text x="140" y="1407">4</text>
+<text x="140" y="1448">5</text>
+<text x="140" y="1489">6</text>
+<text x="140" y="1530">7</text>
+<text x="140" y="1571">8</text>
+<text x="140" y="1612">9</text>
+<text x="140" y="1653">10</text>
+</g>
+<g style="fill:var(--added)">
+<text x="86" y="1366">+</text><text x="194" y="1366">StreamingExperienceSettings:</text>
+<text x="86" y="1407">+</text><text x="224" y="1407">PreferredProtocol: String</text>
+</g>
+<g style="fill:var(--caution)">
+<text x="86" y="1448">~</text><text x="194" y="1448"># Required: No → Yes</text>
+<text x="86" y="1489">~</text><text x="194" y="1489"># Update requires: No interruption → Replacement</text>
+<text x="86" y="1653">~</text><text x="224" y="1653">Enabled: Boolean → String</text>
+</g>
+<g style="fill:var(--alert)">
+<text x="86" y="1571">-</text><text x="194" y="1571">FeedbackURL: String</text>
+</g>
+<text x="164" y="1284">Type: AWS::AppStream::Stack</text>
+<text x="164" y="1325">Properties:</text>
+<text x="194" y="1530">Name: String</text>
+<text x="194" y="1612">ApplicationSettings:</text>
+</g>
+<g font-weight="700" style="fill:var(--caution)">
+<polygon points="62,1731 78,1741 62,1751"/><text x="88" y="1751">AWS::AppStream::StackFleetAssociation</text>
+<polygon points="62,1793 78,1803 62,1813"/><text x="88" y="1813">AWS::ARCRegionSwitch::Plan</text>
+<polygon points="62,1856 78,1866 62,1876"/><text x="88" y="1876">AWS::BedrockAgentCore::Evaluator</text>
+</g>
+</g>
+<rect x="71" y="71" width="1762" height="1762" style="fill:none;stroke:var(--muted);stroke-width:2"/>
+</svg>

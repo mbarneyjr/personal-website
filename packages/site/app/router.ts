@@ -3,6 +3,7 @@ import { compression } from 'remix/middleware/compression';
 import { render } from 'remix/middleware/render';
 import { staticFiles } from 'remix/middleware/static';
 import { createRouter, type Middleware, type MiddlewareContext } from 'remix/router';
+import changelogController from './actions/apps/cloudformation-changelog/controller.tsx';
 import blogController from './actions/blog/controller.tsx';
 import controller from './actions/controller.tsx';
 import { assets } from './assets.ts';
@@ -40,3 +41,4 @@ export const router = createRouter<AppContext>({
 
 router.map(routes, controller);
 router.map(routes.blog, blogController);
+router.map(routes.apps.cloudformationChangelog, changelogController);
