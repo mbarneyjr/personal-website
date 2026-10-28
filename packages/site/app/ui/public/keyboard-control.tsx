@@ -1,5 +1,5 @@
 import { css, type Handle, ref } from 'remix/component';
-import { routes } from '../../routes.ts';
+import { routes } from '#app/routes.ts';
 import { border, color, layout, space, text } from './styles.ts';
 import { theme } from './theme.ts';
 

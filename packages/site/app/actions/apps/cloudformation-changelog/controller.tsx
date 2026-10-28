@@ -1,16 +1,16 @@
 import { redirect } from 'remix/response/redirect';
 import { createController } from 'remix/router';
 
-import { routes } from '../../../routes.ts';
-import { ChangelogChanges } from '../../../ui/pages/apps/cloudformation-changelog/changes.tsx';
-import { compare } from '../../../ui/pages/apps/cloudformation-changelog/comparison.ts';
-import { ChangelogPage } from '../../../ui/pages/apps/cloudformation-changelog/page.tsx';
+import { routes } from '#app/routes.ts';
+import { ChangelogChanges } from '#app/ui/pages/apps/cloudformation-changelog/changes.tsx';
+import { compare } from '#app/ui/pages/apps/cloudformation-changelog/comparison.ts';
+import { ChangelogPage } from '#app/ui/pages/apps/cloudformation-changelog/page.tsx';
 import {
   listCfnVersions,
   neighbors,
   regions,
   specification,
-} from '../../../ui/pages/apps/cloudformation-changelog/specification.ts';
+} from '#app/ui/pages/apps/cloudformation-changelog/specification.ts';
 
 export default createController(routes.apps.cloudformationChangelog, {
   actions: {

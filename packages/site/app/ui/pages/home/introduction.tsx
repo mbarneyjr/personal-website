@@ -1,7 +1,7 @@
 import { css } from 'remix/component';
-import { Portrait } from '../../public/portrait.tsx';
-import { text } from '../../public/styles.ts';
-import { section } from '../lib/section.tsx';
+import { section } from '#app/ui/pages/lib/section.tsx';
+import { Portrait } from '#app/ui/public/portrait.tsx';
+import { text } from '#app/ui/public/styles.ts';
 import { Banner } from './banner.tsx';
 import { profile } from './data.tsx';
 import { InventoryList } from './inventory.tsx';

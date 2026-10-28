@@ -1,5 +1,5 @@
 import { css, type Handle } from 'remix/component';
-import { border, color, layout, space, text } from '../../../public/styles.ts';
+import { border, color, layout, space, text } from '#app/ui/public/styles.ts';
 import type { Block, Changelog, Line, Mark, Segment, Status } from './comparison.ts';
 import { ExpandControls } from './public/expand-controls.tsx';
 

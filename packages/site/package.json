@@ -2,6 +2,9 @@
   "name": "@barneydev/site",
   "private": true,
   "type": "module",
+  "imports": {
+    "#app/*": "./app/*"
+  },
   "scripts": {
     "dev": "NODE_ENV=development node --watch --import remix/node-tsx server.ts",
     "hmr": "NODE_ENV=development node hmr.ts",

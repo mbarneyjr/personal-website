@@ -1,7 +1,7 @@
 import { clientEntry, css, type Handle, on, type RemixNode } from 'remix/component';
-import { routes } from '../../../../../routes.ts';
-import { color, layout, space, text } from '../../../../public/styles.ts';
-import type { Neighbor } from '../specification.ts';
+import { routes } from '#app/routes.ts';
+import type { Neighbor } from '#app/ui/pages/apps/cloudformation-changelog/specification.ts';
+import { color, layout, space, text } from '#app/ui/public/styles.ts';
 
 interface ChangelogNavigationProps {
   regions: string[];

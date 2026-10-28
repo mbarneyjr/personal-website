@@ -1,6 +1,6 @@
 import { css, unsafeHTML } from 'remix/component';
-import { border, color, layout, space, text } from '../../public/styles.ts';
-import { Section } from '../lib/section.tsx';
+import { Section } from '#app/ui/pages/lib/section.tsx';
+import { border, color, layout, space, text } from '#app/ui/public/styles.ts';
 import { projects } from './data.tsx';
 
 const projectImageStyle = css({ aspectRatio: '1', width: '100%', objectFit: 'cover' });

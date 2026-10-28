@@ -1,6 +1,6 @@
 import type { Handle } from 'remix/component';
-import { layout, space, text } from '../../public/styles.ts';
-import { Section } from '../lib/section.tsx';
+import { Section } from '#app/ui/pages/lib/section.tsx';
+import { layout, space, text } from '#app/ui/public/styles.ts';
 import type { InventoryGroup, InventoryItem } from './data.tsx';
 import { entry, group, groupHeading, inventory, term, value } from './styles.ts';
 

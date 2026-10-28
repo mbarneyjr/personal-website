@@ -1,9 +1,9 @@
 import { createController } from 'remix/router';
 
-import { assets } from '../assets.ts';
-import { routes } from '../routes.ts';
-import { HomePage } from '../ui/pages/home/page.tsx';
-import { ResumePage } from '../ui/pages/resume/page.tsx';
+import { assets } from '#app/assets.ts';
+import { routes } from '#app/routes.ts';
+import { HomePage } from '#app/ui/pages/home/page.tsx';
+import { ResumePage } from '#app/ui/pages/resume/page.tsx';
 
 export default createController(routes, {
   actions: {

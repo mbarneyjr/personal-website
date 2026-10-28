@@ -1,9 +1,9 @@
 import { createController } from 'remix/router';
 
-import { routes } from '../../routes.ts';
-import { BlogIndexPage } from '../../ui/pages/blog/index-page.tsx';
-import { BlogPostPage } from '../../ui/pages/blog/post-page.tsx';
-import { getPost, readPost } from '../../ui/pages/blog/posts.ts';
+import { routes } from '#app/routes.ts';
+import { BlogIndexPage } from '#app/ui/pages/blog/index-page.tsx';
+import { BlogPostPage } from '#app/ui/pages/blog/post-page.tsx';
+import { getPost, readPost } from '#app/ui/pages/blog/posts.ts';
 
 export default createController(routes.blog, {
   actions: {

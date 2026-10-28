@@ -1,5 +1,5 @@
-import { routes } from '../../../routes.ts';
-import { Document } from '../lib/document.tsx';
+import { routes } from '#app/routes.ts';
+import { Document } from '#app/ui/pages/lib/document.tsx';
 import { aws, homelab } from './data.tsx';
 import { Introduction } from './introduction.tsx';
 import { InventorySection } from './inventory.tsx';

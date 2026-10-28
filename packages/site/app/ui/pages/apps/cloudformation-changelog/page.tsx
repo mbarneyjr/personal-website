@@ -1,7 +1,7 @@
 import { Frame, type Handle } from 'remix/component';
-import { routes } from '../../../../routes.ts';
-import { color, layout, space, text } from '../../../public/styles.ts';
-import { Document } from '../../lib/document.tsx';
+import { routes } from '#app/routes.ts';
+import { Document } from '#app/ui/pages/lib/document.tsx';
+import { color, layout, space, text } from '#app/ui/public/styles.ts';
 import { ChangelogNavigation } from './public/navigation.tsx';
 import { type Neighbor, regions } from './specification.ts';
 

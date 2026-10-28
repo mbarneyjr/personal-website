@@ -1,7 +1,7 @@
-import { routes } from '../../../routes.ts';
-import { color, layout, space, text } from '../../public/styles.ts';
-import { Document } from '../lib/document.tsx';
-import { Section } from '../lib/section.tsx';
+import { routes } from '#app/routes.ts';
+import { Document } from '#app/ui/pages/lib/document.tsx';
+import { Section } from '#app/ui/pages/lib/section.tsx';
+import { color, layout, space, text } from '#app/ui/public/styles.ts';
 import { posts } from './posts.ts';
 
 export function BlogIndexPage() {

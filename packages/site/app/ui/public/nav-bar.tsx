@@ -1,5 +1,5 @@
 import { clientEntry, css, type Handle, on, ref } from 'remix/component';
-import { routes } from '../../routes.ts';
+import { routes } from '#app/routes.ts';
 import { KeyboardControl } from './keyboard-control.tsx';
 import { border, color, layout, space, text } from './styles.ts';
 import { ThemeControl } from './theme-control.tsx';

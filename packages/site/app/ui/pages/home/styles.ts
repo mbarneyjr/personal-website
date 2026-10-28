@@ -1,5 +1,5 @@
 import { css } from 'remix/component';
-import { color, layout, space, text } from '../../public/styles.ts';
+import { color, layout, space, text } from '#app/ui/public/styles.ts';
 
 export const group = [layout.stack, space.gap2];
 export const groupHeading = [text.label, color.muted];

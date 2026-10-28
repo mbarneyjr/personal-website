@@ -1,8 +1,8 @@
 import { css, type Handle } from 'remix/component';
-import { routes } from '../../../routes.ts';
-import { border, color, layout, space, text } from '../../public/styles.ts';
-import { Document } from '../lib/document.tsx';
-import { Section } from '../lib/section.tsx';
+import { routes } from '#app/routes.ts';
+import { Document } from '#app/ui/pages/lib/document.tsx';
+import { Section } from '#app/ui/pages/lib/section.tsx';
+import { border, color, layout, space, text } from '#app/ui/public/styles.ts';
 import {
   type Credential,
   certifications,

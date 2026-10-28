@@ -1,5 +1,5 @@
 import { css } from 'remix/component';
-import { color, text } from '../../public/styles.ts';
+import { color, text } from '#app/ui/public/styles.ts';
 
 const banner = String.raw` _                                 _
 | |__  __ _ _ _ _ _  ___ _  _   __| |_____ __

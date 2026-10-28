@@ -1,5 +1,5 @@
 import { clientEntry, type Handle, on } from 'remix/component';
-import { layout, space } from '../../../../public/styles.ts';
+import { layout, space } from '#app/ui/public/styles.ts';
 
 function setAll(button: HTMLElement, open: boolean) {
   for (const details of button.closest('section')?.querySelectorAll('details') ?? []) details.open = open;

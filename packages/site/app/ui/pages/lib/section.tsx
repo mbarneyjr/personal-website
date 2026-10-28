@@ -1,5 +1,5 @@
 import { css, type Handle, type RemixNode } from 'remix/component';
-import { border, layout, space, text } from '../../public/styles.ts';
+import { border, layout, space, text } from '#app/ui/public/styles.ts';
 
 export const headingPrefix = css({
   '&::before': {

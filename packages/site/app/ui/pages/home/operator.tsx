@@ -1,5 +1,5 @@
-import { layout, space } from '../../public/styles.ts';
-import { Section } from '../lib/section.tsx';
+import { Section } from '#app/ui/pages/lib/section.tsx';
+import { layout, space } from '#app/ui/public/styles.ts';
 
 export function Operator() {
   return () => (

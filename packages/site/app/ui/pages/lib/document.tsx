@@ -1,10 +1,10 @@
 import { css, type Handle, type RemixNode } from 'remix/component';
 import { ImportMap } from 'remix/component/server';
-import { assets } from '../../../assets.ts';
-import { routes } from '../../../routes.ts';
-import { Footer } from '../../public/footer.tsx';
-import { NavBar } from '../../public/nav-bar.tsx';
-import { layout, space } from '../../public/styles.ts';
+import { assets } from '#app/assets.ts';
+import { routes } from '#app/routes.ts';
+import { Footer } from '#app/ui/public/footer.tsx';
+import { NavBar } from '#app/ui/public/nav-bar.tsx';
+import { layout, space } from '#app/ui/public/styles.ts';
 
 const scriptEntry = await assets.getScriptEntry('app/ui/public/entry.ts');
 
