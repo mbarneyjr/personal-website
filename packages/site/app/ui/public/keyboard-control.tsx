@@ -46,11 +46,6 @@ const commands: Command[] = [
   { keys: 'gh', description: 'go to home', run: () => visit(routes.home.href()) },
   { keys: 'gb', description: 'go to blog', run: () => visit(routes.blog.index.href()) },
   { keys: 'gr', description: 'go to resume', run: () => visit(routes.resume.href()) },
-  {
-    keys: 'gc',
-    description: 'go to cloudformation changelog',
-    run: () => visit(routes.apps.cloudformationChangelog.index.href()),
-  },
   { keys: 't', description: 'cycle color theme', run: () => theme.cycle() },
   { keys: '?', description: 'toggle this help', run: (_, help) => (help.open ? help.close() : help.showModal()) },
 ];
