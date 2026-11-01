@@ -1,101 +1,155 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1904 1904" font-family="'Berkeley Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="29" style="--outer:light-dark(#ffffff, #000000);--bg:light-dark(hsl(40 20% 95%), hsl(40 5% 10%));--panel:light-dark(hsl(40 20% 90%), hsl(40 5% 10%));--fg:light-dark(hsl(40 5% 10%), hsl(40 20% 90%));--muted:light-dark(hsl(40 5% 40%), hsl(40 5% 55%));--rule:light-dark(hsl(40 10% 75%), hsl(40 5% 20%));--accent:light-dark(hsl(30 100% 35%), hsl(30 100% 45%));--added:light-dark(hsl(205 100% 30%), hsl(205 90% 75%));--alert:light-dark(hsl(0 75% 40%), hsl(0 85% 65%));--caution:light-dark(hsl(45 100% 30%), hsl(45 90% 55%));fill:var(--fg)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1904 1904" font-family="'Ioskeley Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="31" style="--outer:light-dark(#ffffff, #000000);--paper:light-dark(hsl(210 33% 98%), hsl(216 58% 13%));--sheet:light-dark(hsl(212 45% 95%), hsl(216 52% 17%));--ink:light-dark(hsl(218 45% 13%), hsl(208 45% 93%));--muted:light-dark(hsl(216 18% 40%), hsl(210 25% 70%));--line:light-dark(hsl(213 38% 80%), hsl(212 42% 30%));--brand:light-dark(hsl(216 88% 40%), hsl(197 95% 68%));--added:light-dark(hsl(135 85% 15%), hsl(135 62% 64%));--removed:light-dark(hsl(356 85% 29%), hsl(356 90% 78%));--modified:light-dark(hsl(32 100% 19%), hsl(40 92% 64%));--added-wash:light-dark(hsl(138 55% 75%), hsl(140 52% 23%));--removed-wash:light-dark(hsl(356 78% 80%), hsl(354 55% 24%));--modified-wash:light-dark(hsl(40 88% 72%), hsl(38 60% 20%));--brand-wash:color-mix(in oklab, var(--brand) 12%, transparent);fill:var(--ink)">
 <rect width="1904" height="1904" style="fill:var(--outer)"/>
 <g transform="translate(70 70) scale(0.9264)">
-<rect width="1904" height="1904" style="fill:var(--bg)"/>
-<text x="62" y="50" style="fill:var(--accent)">barney.dev</text>
-<rect x="62" y="56" width="175" height="2" style="fill:var(--accent)"/>
-<text x="1411" y="50" style="fill:var(--accent)">/blog</text>
-<rect x="1411" y="56" width="87" height="2" style="fill:var(--accent)"/>
-<text x="1530" y="50" style="fill:var(--accent)">/resume</text>
-<rect x="1530" y="56" width="122" height="2" style="fill:var(--accent)"/>
-<rect x="1701" y="8" width="173" height="63" style="fill:none;stroke:var(--accent);stroke-width:2"/>
-<path d="M1744 33a8 8 0 0 0 0 16z" style="fill:var(--accent)"/>
-<circle cx="1744" cy="41" r="8" style="fill:none;stroke:var(--accent);stroke-width:2"/>
-<text x="1771" y="50" style="fill:var(--accent)">auto</text>
-<line x1="0" y1="89" x2="1904" y2="89" style="stroke:var(--rule);stroke-width:2;stroke-dasharray:4 4"/>
-<text x="62" y="165" font-size="46" font-weight="700">CloudFormation Changelog</text>
-<text x="62" y="228" style="fill:var(--muted)">Changes to the CloudFormation resource specification.</text>
-<g font-size="25">
-<text x="62" y="334" style="fill:var(--accent)">← 268.0.0</text>
-<text x="62" y="374" style="fill:var(--muted)">2026-10-15</text>
-<rect x="650" y="289" width="310" height="57" style="fill:none;stroke:var(--accent);stroke-width:2"/>
-<text x="805" y="326" text-anchor="middle" style="fill:var(--accent)">us-east-1</text>
-<polygon points="911,312 927,312 919,322" style="fill:var(--accent)"/>
-<rect x="977" y="289" width="310" height="57" style="fill:none;stroke:var(--accent);stroke-width:2"/>
-<text x="1132" y="326" text-anchor="middle" style="fill:var(--accent)">269.0.0</text>
-<polygon points="1238,312 1254,312 1246,322" style="fill:var(--accent)"/>
-<text x="969" y="391" text-anchor="middle" style="fill:var(--muted)">2026-10-22</text>
-<g letter-spacing="3">
-<text x="62" y="480" style="fill:var(--muted)">ADDED</text>
-<text x="168" y="480" font-weight="700">9</text>
-<text x="232" y="480" style="fill:var(--muted)">REMOVED</text>
-<text x="375" y="480" font-weight="700">2</text>
-<text x="437" y="480" style="fill:var(--muted)">MODIFIED</text>
-<text x="600" y="480" font-weight="700">24</text>
-<text x="676" y="480" style="fill:var(--muted)">DOCUMENTATION</text>
-<text x="930" y="480" font-weight="700">0</text>
+<svg width="1904" height="1904" overflow="hidden">
+<rect width="1904" height="1904" style="fill:var(--paper)"/>
+<path d="M58 30 80 70H36Z" style="fill:var(--brand-wash);stroke:var(--brand);stroke-width:4"/>
+<text x="98" y="66" font-size="38" font-weight="700">cfn<tspan style="fill:var(--brand)">.fyi</tspan></text>
+<text x="290" y="62" font-size="27" style="fill:var(--muted)">CloudFormation specification changelog</text>
+<rect x="1672" y="20" width="186" height="66" style="fill:none;stroke:var(--line);stroke-width:2"/>
+<text x="1765" y="64" text-anchor="middle" style="fill:var(--brand)">◐ auto</text>
+<line x1="0" y1="105" x2="1904" y2="105" style="stroke:var(--line);stroke-width:2"/>
+<text x="34" y="210" font-size="59" font-weight="700">Resource specification 270.0.0</text>
+<g style="fill:var(--muted)">
+<text x="34" y="272">Each version of the AWS CloudFormation resource specification, compared with the version</text>
+<text x="34" y="322">before it.</text>
+</g>
+<rect x="34" y="392" width="1836" height="198" style="fill:var(--paper);stroke:var(--line);stroke-width:2"/>
+<line x1="493" y1="392" x2="493" y2="590" style="stroke:var(--line);stroke-width:2"/>
+<line x1="1411" y1="392" x2="1411" y2="590" style="stroke:var(--line);stroke-width:2"/>
+<g font-size="23" font-weight="700" letter-spacing="3" style="fill:var(--brand)">
+<text x="68" y="437">← PREVIOUS</text>
+<text x="952" y="437" text-anchor="middle">VERSION</text>
+<text x="1836" y="437" text-anchor="end">NEXT →</text>
+</g>
+<text x="68" y="490" font-weight="700">269.0.0</text>
+<text x="952" y="497" font-size="38" font-weight="700" text-anchor="middle">270.0.0</text>
+<polygon points="1322,482 1338,482 1330,491" style="fill:var(--brand)"/>
+<g font-size="27" style="fill:var(--muted)">
+<text x="68" y="543">2026-10-22</text>
+<text x="952" y="553" text-anchor="middle">issued 2026-10-29</text>
+</g>
+<g text-anchor="end" style="fill:var(--muted)">
+<text x="1836" y="490">This is the latest</text>
+<text x="1836" y="540">version</text>
+</g>
+<g font-size="38" font-weight="700">
+<text x="34" y="690" style="fill:var(--brand)">01</text>
+<text x="110" y="690">Added resource types</text>
+<text x="600" y="690" font-weight="400" style="fill:var(--muted)">22</text>
+<text x="34" y="1150" style="fill:var(--brand)">02</text>
+<text x="110" y="1150">Modified resource types</text>
+<text x="690" y="1150" font-weight="400" style="fill:var(--muted)">21</text>
+</g>
+<g style="fill:none;stroke:var(--line);stroke-width:2">
+<line x1="680" y1="677" x2="1340" y2="677"/>
+<line x1="770" y1="1137" x2="1340" y2="1137"/>
+<rect x="1377" y="638" width="220" height="70"/>
+<rect x="1613" y="638" width="257" height="70"/>
+<rect x="1377" y="1098" width="220" height="70"/>
+<rect x="1613" y="1098" width="257" height="70"/>
+</g>
+<g text-anchor="middle" style="fill:var(--brand)">
+<text x="1487" y="684">expand all</text>
+<text x="1741" y="684">collapse all</text>
+<text x="1487" y="1144">expand all</text>
+<text x="1741" y="1144">collapse all</text>
+</g>
+<g style="fill:var(--paper);stroke:var(--line);stroke-width:2">
+<rect x="34" y="740" width="1836" height="258"/>
+<rect x="34" y="1200" width="1836" height="800"/>
+</g>
+<g style="stroke:var(--line);stroke-width:2">
+<line x1="34" y1="826" x2="1870" y2="826"/>
+<line x1="34" y1="912" x2="1870" y2="912"/>
+<line x1="34" y1="1758" x2="1870" y2="1758"/>
+<line x1="34" y1="1844" x2="1870" y2="1844"/>
+</g>
+<g style="fill:var(--brand)">
+<polygon points="62,775 76,783 62,791"/>
+<polygon points="62,861 76,869 62,877"/>
+<polygon points="62,947 76,955 62,963"/>
+<polygon points="60,1237 76,1237 68,1250"/>
+<polygon points="62,1707 76,1715 62,1723"/>
+<polygon points="62,1793 76,1801 62,1809"/>
+<polygon points="62,1879 76,1887 62,1895"/>
+</g>
+<g style="fill:var(--added-wash);stroke:var(--added);stroke-width:2">
+<rect x="92" y="760" width="46" height="46"/>
+<rect x="92" y="846" width="46" height="46"/>
+<rect x="92" y="932" width="46" height="46"/>
+</g>
+<g style="fill:var(--modified-wash);stroke:var(--modified);stroke-width:2">
+<rect x="92" y="1220" width="46" height="46"/>
+<rect x="92" y="1692" width="46" height="46"/>
+<rect x="92" y="1778" width="46" height="46"/>
+<rect x="92" y="1864" width="46" height="46"/>
+</g>
+<g font-weight="700" text-anchor="middle">
+<g style="fill:var(--added)">
+<text x="115" y="794">+</text>
+<text x="115" y="880">+</text>
+<text x="115" y="966">+</text>
+</g>
+<g style="fill:var(--modified)">
+<text x="115" y="1254">~</text>
+<text x="115" y="1726">~</text>
+<text x="115" y="1812">~</text>
+<text x="115" y="1898">~</text>
 </g>
 </g>
-<text x="62" y="571" font-weight="700" letter-spacing="4">NEW RESOURCE TYPES</text>
-<rect x="473" y="560" width="1402" height="2"/>
-<g style="fill:none;stroke:var(--accent);stroke-width:2">
-<rect x="62" y="632" width="210" height="65"/>
-<rect x="289" y="632" width="245" height="65"/>
-<rect x="62" y="1058" width="210" height="65"/>
-<rect x="289" y="1058" width="245" height="65"/>
+<g style="fill:var(--muted)">
+<text x="160" y="794">AWS::AppFabric::<tspan font-weight="700" style="fill:var(--ink)">AppBundle</tspan></text>
+<text x="160" y="880">AWS::CloudWatch::<tspan font-weight="700" style="fill:var(--ink)">AccessGrant</tspan></text>
+<text x="160" y="966">AWS::EC2::<tspan font-weight="700" style="fill:var(--ink)">IPv6Pool</tspan></text>
+<text x="160" y="1254">AWS::Batch::<tspan font-weight="700" style="fill:var(--ink)">QuotaShare</tspan></text>
+<text x="160" y="1726">AWS::BedrockAgentCore::<tspan font-weight="700" style="fill:var(--ink)">Gateway</tspan></text>
+<text x="160" y="1812">AWS::CodeDeploy::<tspan font-weight="700" style="fill:var(--ink)">DeploymentGroup</tspan></text>
+<text x="160" y="1898">AWS::EKS::<tspan font-weight="700" style="fill:var(--ink)">Cluster</tspan></text>
 </g>
-<g style="fill:var(--accent)">
-<text x="80" y="675">expand all</text>
-<text x="307" y="675">collapse all</text>
-<text x="80" y="1101">expand all</text>
-<text x="307" y="1101">collapse all</text>
+<g font-size="27" text-anchor="end" text-decoration="underline" style="fill:var(--brand)">
+<text x="1800" y="793">docs ↗</text>
+<text x="1800" y="879">docs ↗</text>
+<text x="1800" y="965">docs ↗</text>
+<text x="1800" y="1253">docs ↗</text>
+<text x="1800" y="1725">docs ↗</text>
+<text x="1800" y="1811">docs ↗</text>
+<text x="1800" y="1897">docs ↗</text>
 </g>
-<g font-weight="700" style="fill:var(--added)">
-<polygon points="62,759 78,769 62,779"/><text x="88" y="779">AWS::BcmPricingCalculator::BillEstimate</text>
-<polygon points="62,821 78,831 62,841"/><text x="88" y="841">AWS::Bedrock::RetrievalInstruction</text>
-<polygon points="62,884 78,894 62,904"/><text x="88" y="904">AWS::EC2::DeclarativePoliciesReport</text>
+<rect x="35" y="1286" width="1834" height="386" style="fill:var(--sheet)"/>
+<line x1="34" y1="1286" x2="1870" y2="1286" style="stroke:var(--line);stroke-width:2"/>
+<rect x="35" y="1435" width="1834" height="44" style="fill:var(--modified-wash)"/>
+<rect x="35" y="1479" width="1834" height="44" style="fill:var(--added-wash)"/>
+<rect x="35" y="1523" width="1834" height="44" style="fill:var(--removed-wash)"/>
+<rect x="35" y="1611" width="1834" height="44" style="fill:var(--modified-wash)"/>
+<line x1="186" y1="1286" x2="186" y2="1672" style="stroke:var(--line);stroke-width:2"/>
+<g font-size="27" style="white-space:pre">
+<g text-anchor="end" style="fill:var(--muted)">
+<text x="140" y="1333">1</text>
+<text x="140" y="1377">2</text>
+<text x="140" y="1421">3</text>
+<text x="140" y="1465">4</text>
+<text x="140" y="1509">5</text>
+<text x="140" y="1553">6</text>
+<text x="140" y="1597">7</text>
+<text x="140" y="1641">8</text>
 </g>
-<text x="62" y="997" font-weight="700" letter-spacing="4">CHANGED RESOURCE TYPES</text>
-<rect x="557" y="986" width="1318" height="2"/>
-<g font-weight="700" style="fill:var(--caution)">
-<polygon points="62,1188 80,1188 71,1202"/><text x="88" y="1205">AWS::AppStream::Stack</text>
-</g>
-<rect x="63" y="1227" width="1811" height="458" style="fill:var(--panel);stroke:var(--rule);stroke-width:2"/>
-<g font-size="25" style="white-space:pre">
-<g style="fill:var(--muted)" text-anchor="end">
-<text x="140" y="1284">1</text>
-<text x="140" y="1325">2</text>
-<text x="140" y="1366">3</text>
-<text x="140" y="1407">4</text>
-<text x="140" y="1448">5</text>
-<text x="140" y="1489">6</text>
-<text x="140" y="1530">7</text>
-<text x="140" y="1571">8</text>
-<text x="140" y="1612">9</text>
-<text x="140" y="1653">10</text>
+<text x="206" y="1333">Type: <tspan text-decoration="underline">AWS::Batch::QuotaShare</tspan></text>
+<text x="206" y="1377">Properties:</text>
+<text x="238" y="1421" style="fill:var(--muted)"># Required: Yes → No</text>
+<g style="fill:var(--modified)">
+<text x="158" y="1465">~</text><text x="238" y="1465"><tspan text-decoration="underline">QuotaShareName</tspan>: String</text>
+<text x="158" y="1641">~</text><text x="270" y="1641"># Update requires: Replacement → No interruption</text>
 </g>
 <g style="fill:var(--added)">
-<text x="86" y="1366">+</text><text x="194" y="1366">StreamingExperienceSettings:</text>
-<text x="86" y="1407">+</text><text x="224" y="1407">PreferredProtocol: String</text>
+<text x="158" y="1509">+</text><text x="238" y="1509"><tspan text-decoration="underline">Priority</tspan>: Integer</text>
 </g>
-<g style="fill:var(--caution)">
-<text x="86" y="1448">~</text><text x="194" y="1448"># Required: No → Yes</text>
-<text x="86" y="1489">~</text><text x="194" y="1489"># Update requires: No interruption → Replacement</text>
-<text x="86" y="1653">~</text><text x="224" y="1653">Enabled: Boolean → String</text>
+<g style="fill:var(--removed)">
+<text x="158" y="1553">−</text><text x="238" y="1553"><tspan text-decoration="underline">ComputeReservation</tspan>: Integer</text>
 </g>
-<g style="fill:var(--alert)">
-<text x="86" y="1571">-</text><text x="194" y="1571">FeedbackURL: String</text>
+<text x="238" y="1597"><tspan text-decoration="underline">CapacityLimits</tspan>:</text>
 </g>
-<text x="164" y="1284">Type: AWS::AppStream::Stack</text>
-<text x="164" y="1325">Properties:</text>
-<text x="194" y="1530">Name: String</text>
-<text x="194" y="1612">ApplicationSettings:</text>
+</svg>
 </g>
-<g font-weight="700" style="fill:var(--caution)">
-<polygon points="62,1731 78,1741 62,1751"/><text x="88" y="1751">AWS::AppStream::StackFleetAssociation</text>
-<polygon points="62,1793 78,1803 62,1813"/><text x="88" y="1813">AWS::ARCRegionSwitch::Plan</text>
-<polygon points="62,1856 78,1866 62,1876"/><text x="88" y="1876">AWS::BedrockAgentCore::Evaluator</text>
-</g>
-</g>
-<rect x="71" y="71" width="1762" height="1762" style="fill:none;stroke:var(--muted);stroke-width:2"/>
+<rect x="71" y="71" width="1762" height="1762" style="fill:none;stroke:var(--line);stroke-width:2"/>
 </svg>

@@ -1,5 +1,4 @@
 import { get, route } from 'remix/routes';
-import { changelogRoutes } from './actions/apps/cloudformation-changelog/routes.ts';
 
 export const routes = route({
   assets: get('/assets/*path'),
@@ -9,7 +8,5 @@ export const routes = route({
     index: get('/blog'),
     show: get('/blog/:slug'),
   },
-  apps: route('/apps', {
-    cloudformationChangelog: route('/cloudformation-changelog', changelogRoutes),
-  }),
+  changelog: get('/apps/cloudformation-changelog(/*path)'),
 });

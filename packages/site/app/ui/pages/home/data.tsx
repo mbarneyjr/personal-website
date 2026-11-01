@@ -111,8 +111,8 @@ export const projects: Project[] = [
     image: { svg: await readFile(new URL('./projects/cfn.nvim.svg', import.meta.url), 'utf8') },
   },
   {
-    name: 'CloudFormation Changelog',
-    href: '/apps/cloudformation-changelog',
+    name: 'cfn.fyi',
+    href: 'https://cfn.fyi',
     stack: 'TypeScript, Remix',
     description: 'A viewer for changes between versions of the CloudFormation resource specification.',
     image: { svg: await readFile(new URL('./projects/cloudformation-changelog.svg', import.meta.url), 'utf8') },
