@@ -8,5 +8,4 @@ export const routes = route({
     index: get('/blog'),
     show: get('/blog/:slug'),
   },
-  changelog: get('/apps/cloudformation-changelog(/*path)'),
 });

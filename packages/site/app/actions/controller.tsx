@@ -1,4 +1,3 @@
-import { redirect } from 'remix/response/redirect';
 import { createController } from 'remix/router';
 
 import { assets } from '#app/assets.ts';
@@ -16,9 +15,6 @@ export default createController(routes, {
     },
     resume(context) {
       return context.render(<ResumePage />);
-    },
-    changelog(context) {
-      return redirect(`https://cfn.fyi/${context.url.search}`, 301);
     },
   },
 });
