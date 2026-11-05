@@ -13,7 +13,7 @@
             ../packages
           ];
         };
-        npmDepsHash = "sha256-PyX7HjggDl+U6f1rGvd7VIQD5Y9vU4ZUaXP0yzDRta4=";
+        npmDepsHash = "sha256-qcwK3oMgaB6NA4t//ZVYU1eM20KYMUDkxtG6rWRzdd4=";
         dontNpmBuild = true;
       };
       packages.zip = pkgs.runCommand "barneydev-zip" { nativeBuildInputs = [ pkgs.zip ]; } ''
